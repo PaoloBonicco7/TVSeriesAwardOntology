@@ -1,0 +1,1715 @@
+@prefix : <http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix tsao: <http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#> .
+@prefix vann: <http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#vann:> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix cpannotationschema: <http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#> .
+@base <http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology> .
+
+<http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology> rdf:type owl:Ontology ;
+                                                                                 owl:imports <http://www.ontologydesignpatterns.org/cp/owl/set.owl> ;
+                                                                                 dc:creator "Paolo Bonicco"^^xsd:string ;
+                                                                                 dc:date "12-09-2024"@it ;
+                                                                                 dc:description "Ontologia che modella le serie tv e i premi a loro associati, con le nomination e i premi che hanno vinto. Lo scopo dell'ontologia è raggruppare tutte le informazioni, i premi e le nomination delle principali serie tv degli ultimi anni."@it ;
+                                                                                 dc:title "Tv Series Award Ontology"^^xsd:string ;
+                                                                                 vann:preferredNamespacePrefix "tsao"^^xsd:string ;
+                                                                                 vann:preferredNamespaceUri "http://www.semanticweb.org/TvSeriesAwardOntology"@it ;
+                                                                                 rdfs:label "Tv Series Award Ontology"@it .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#vann:preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#vann:preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#candidaturaPer
+tsao:candidaturaPer rdf:type owl:ObjectProperty ;
+                    rdfs:domain tsao:Ruolo .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#conRuolo
+tsao:conRuolo rdf:type owl:ObjectProperty ;
+              owl:inverseOf tsao:ruoloInSerie ;
+              rdfs:domain tsao:SerieTV ;
+              rdfs:range tsao:Ruolo ;
+              rdfs:comment "Associa una serie TV ad un ruolo" ;
+              rdfs:label "conRuolo" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#conferitoA
+tsao:conferitoA rdf:type owl:ObjectProperty ;
+                owl:inverseOf tsao:haRicevutoPremio ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain tsao:Premio ;
+                rdfs:range tsao:Ruolo ;
+                rdfs:comment "Associa un Premio ad una Candidatura"@it ;
+                rdfs:label "Conferito A"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#conferitoAPersona
+tsao:conferitoAPersona rdf:type owl:ObjectProperty ;
+                       owl:inverseOf tsao:haVintoPremio ;
+                       rdfs:domain tsao:Premio ;
+                       rdfs:range tsao:Persona ;
+                       owl:propertyChainAxiom ( tsao:conferitoA
+                                                tsao:ruoloAffidatoA
+                                              ) ;
+                       rdfs:comment "Associa un premio ad una persona che ricopre un ruolo, il quale ha ricevuto una candidatura associata a cui è stato conferito un premio"@it ;
+                       rdfs:label "Conferito a Persona"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#conferitoNelloStessoEvento
+tsao:conferitoNelloStessoEvento rdf:type owl:ObjectProperty ,
+                                         owl:SymmetricProperty ,
+                                         owl:TransitiveProperty ;
+                                rdfs:domain tsao:Premio ;
+                                rdfs:range tsao:Premio ;
+                                rdfs:comment "Mette in relazione due eventi che sono stati conferito nello stesso evento"@it ;
+                                rdfs:label "Conferito Nello Stesso Evento"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#contiene
+tsao:contiene rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember> ;
+              owl:inverseOf tsao:eContenutoDa ;
+              rdfs:domain tsao:Selezione ;
+              rdfs:range tsao:Ruolo ;
+              rdfs:comment "Relazione tra una selezione per un premio e un ruolo"@it ;
+              rdfs:label "Contiene"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#direttoDa
+tsao:direttoDa rdf:type owl:ObjectProperty ;
+               owl:inverseOf tsao:haDirettoEpisodio ;
+               rdfs:domain tsao:Episodio ;
+               rdfs:range tsao:RegistraShow ;
+               rdfs:comment "Associa un Episodio ad un Regista che ha diretto l'episodio"@it ;
+               rdfs:label "Diretto Da"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#eContenutoDa
+tsao:eContenutoDa rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf> ;
+                  rdfs:domain tsao:Ruolo ;
+                  rdfs:range tsao:Selezione ;
+                  rdfs:comment "Mette in relazione un ruolo specifico e una selezione per un premio"@it ;
+                  rdfs:label "E' Contenuto Da"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#eEpisodioDiSerie
+tsao:eEpisodioDiSerie rdf:type owl:ObjectProperty ;
+                      rdfs:domain tsao:Episodio ;
+                      rdfs:range tsao:SerieTV ;
+                      rdfs:comment "Associa un episodio alla sua serieTV"@it ;
+                      rdfs:label "È episodio Serie"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#eStatoSceneggiatoDa
+tsao:eStatoSceneggiatoDa rdf:type owl:ObjectProperty ;
+                         owl:inverseOf tsao:haSceneggiatoEpisodio ;
+                         rdfs:domain tsao:Episodio ;
+                         rdfs:range tsao:SceneggiatoreShow ;
+                         rdfs:comment "Mette in relazione un Episodio e il suo Sceneggiatore"@it ;
+                         rdfs:label "E' Stato Sceneggiato Da"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haCandidato
+tsao:haCandidato rdf:type owl:ObjectProperty ;
+                 rdfs:domain tsao:Premio ;
+                 rdfs:range tsao:Ruolo ;
+                 rdfs:comment "Associa un premio ad una candidatura" ;
+                 rdfs:label "haCandidato" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haDirettoEpisodio
+tsao:haDirettoEpisodio rdf:type owl:ObjectProperty ;
+                       rdfs:domain tsao:RegistraShow ;
+                       rdfs:range tsao:Episodio ;
+                       rdfs:comment "Identifica un Regista che ha diretto un Episodio"@it ;
+                       rdfs:label "Ha Diretto Episodio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haEpisodio
+tsao:haEpisodio rdf:type owl:ObjectProperty ;
+                rdfs:domain tsao:Stagione ;
+                rdfs:range tsao:Episodio ;
+                rdfs:comment "collega una stagione ai suoi episodi" ;
+                rdfs:label "haEpisodio" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haPersonaggio
+tsao:haPersonaggio rdf:type owl:ObjectProperty ;
+                   owl:inverseOf tsao:personaggioDi ;
+                   rdfs:domain tsao:SerieTV ;
+                   rdfs:range tsao:Personaggio ;
+                   rdfs:comment "Lega una Serie TV and un personaggio"@it ;
+                   rdfs:label "Ha Personaggio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haProdotto
+tsao:haProdotto rdf:type owl:ObjectProperty ;
+                rdfs:domain tsao:ProduttoreShow ;
+                rdfs:range tsao:SerieTV ;
+                owl:propertyChainAxiom ( tsao:haRuolo
+                                         tsao:ruoloProduttore
+                                       ) ;
+                rdfs:comment "Associa un Produttore ad una Serie TV che ha prodotto"@it ;
+                rdfs:label "haProdotto"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haRicevutoPremio
+tsao:haRicevutoPremio rdf:type owl:ObjectProperty ;
+                      rdfs:domain tsao:Ruolo ;
+                      rdfs:range tsao:Premio ;
+                      rdfs:comment "Associa una candidatura vincente ad un premio"@it ;
+                      rdfs:label "Ha Ricevuto Premio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haRuolo
+tsao:haRuolo rdf:type owl:ObjectProperty ;
+             owl:inverseOf tsao:ruoloAffidatoA ;
+             rdfs:domain tsao:Persona ;
+             rdfs:range tsao:Ruolo ;
+             rdfs:comment "Lega una persona al Ruolo che ricopre"@it ;
+             rdfs:label "Ha Ruolo"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haSceneggiatoEpisodio
+tsao:haSceneggiatoEpisodio rdf:type owl:ObjectProperty ;
+                           rdfs:domain tsao:SceneggiatoreShow ;
+                           rdfs:range tsao:Episodio ;
+                           rdfs:comment "Identifica uno Sceneggiatore che ha collaborato alla sceneggiatura di un Episodio"@it ;
+                           rdfs:label "Ha Sceneggiato Episodio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haSelezione
+tsao:haSelezione rdf:type owl:ObjectProperty ;
+                 owl:inverseOf tsao:selezioneDi ;
+                 rdfs:domain tsao:Premio ;
+                 rdfs:range tsao:Selezione ;
+                 rdfs:comment "Lega un premio al proprio insieme di condidati unici, chiamata selezione per implicare l'assenza di duplicati all'interno dei candidati per un premio" ;
+                 rdfs:label "haSelezione" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haSerieTV
+tsao:haSerieTV rdf:type owl:ObjectProperty ;
+               rdfs:comment "collega una stagione as una serie TV" ;
+               rdfs:label "haSerieTV" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haStagione
+tsao:haStagione rdf:type owl:ObjectProperty ;
+                rdfs:domain tsao:SerieTV ;
+                rdfs:range tsao:Stagione ;
+                rdfs:comment "indica che una serie TV ha una o più stagioni" ;
+                rdfs:label "haStagione" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#haVintoPremio
+tsao:haVintoPremio rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf <https://www.wikidata.org/wiki/Property:P166> ;
+                   rdfs:domain tsao:Persona ;
+                   rdfs:range tsao:Premio ;
+                   rdfs:comment "Associa una persona che ha vinto un premio al premio" ;
+                   rdfs:label "haVintoPremio" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#interpretatoDa
+tsao:interpretatoDa rdf:type owl:ObjectProperty ;
+                    owl:inverseOf tsao:ruoloAttoriale ;
+                    rdfs:domain tsao:Personaggio ;
+                    rdfs:range tsao:Ruolo ;
+                    rdfs:comment "Associa un personaggio al suo ruolo"@it ;
+                    rdfs:label "Interpretato Da"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#personaggioDi
+tsao:personaggioDi rdf:type owl:ObjectProperty ;
+                   rdfs:domain tsao:Personaggio ;
+                   rdfs:range tsao:SerieTV ;
+                   rdfs:comment "Mette in relazione un Personaggio con la sua Serie TV"@it ;
+                   rdfs:label "Personaggio Di"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#premioConferito
+tsao:premioConferito rdf:type owl:ObjectProperty ;
+                     rdfs:domain tsao:CerimoniaPremiazione ;
+                     rdfs:range tsao:Premio ;
+                     rdfs:comment "Associa un evento ad un premio assegnato durante una Cerimonia Di Premiazione"@it ;
+                     rdfs:label "Premio Conferito"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#recitaIn
+tsao:recitaIn rdf:type owl:ObjectProperty ;
+              rdfs:domain tsao:Persona ;
+              rdfs:range tsao:SerieTV ;
+              owl:propertyChainAxiom ( tsao:haRuolo
+                                       tsao:ruoloAttoriale
+                                       tsao:personaggioDi
+                                     ) ;
+              rdfs:comment "Associa una persona che recita ad una SerieTV"@it ;
+              rdfs:label "recitaIn"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloAffidatoA
+tsao:ruoloAffidatoA rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain tsao:Ruolo ;
+                    rdfs:range tsao:Persona ;
+                    rdfs:comment "Lega un Ruolo ad una Persona"@it ;
+                    rdfs:label "Ruolo Affidato A"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloAttore
+tsao:ruoloAttore rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf tsao:ruoloInSerie ;
+                 rdfs:domain tsao:Attore ;
+                 rdfs:range tsao:SerieTV ;
+                 owl:propertyChainAxiom ( tsao:ruoloAttoriale
+                                          tsao:personaggioDi
+                                        ) ;
+                 rdfs:comment "Lega un attore ad una Serie TV" ;
+                 rdfs:label "ruoloAttore" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloAttoriale
+tsao:ruoloAttoriale rdf:type owl:ObjectProperty ;
+                    rdfs:domain tsao:Ruolo ;
+                    rdfs:range tsao:Personaggio ;
+                    rdfs:comment "Mette in relazione un ruolo con il personaggio"@it ;
+                    rdfs:label "Ruolo Attoriale"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloInSerie
+tsao:ruoloInSerie rdf:type owl:ObjectProperty ;
+                  rdfs:domain tsao:Ruolo ;
+                  rdfs:range tsao:SerieTV .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloInterpretatoDa
+tsao:ruoloInterpretatoDa rdf:type owl:ObjectProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain tsao:Ruolo ;
+                         rdfs:range tsao:Persona ;
+                         rdfs:comment "Assegna ad una persona un ruolo" ;
+                         rdfs:seeAlso "ruoloInterpretatoDa" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloProduttore
+tsao:ruoloProduttore rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf tsao:ruoloInSerie ;
+                     rdfs:domain tsao:Produttore ;
+                     rdfs:range tsao:SerieTV ;
+                     rdfs:comment "Lega un produttore ad una serie TV." ;
+                     rdfs:label "ruoloProduttore" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloRegista
+tsao:ruoloRegista rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf tsao:ruoloInSerie ;
+                  rdfs:domain tsao:Regista ;
+                  rdfs:range tsao:SerieTV ;
+                  rdfs:comment "Lega un regista ad una serie TV." ;
+                  rdfs:seeAlso "ruoloRegista" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloSceneggiatore
+tsao:ruoloSceneggiatore rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf tsao:ruoloInSerie ;
+                        rdfs:domain tsao:Sceneggiatore ;
+                        rdfs:range tsao:SerieTV ;
+                        rdfs:comment "Lega un sceneggaitore ad una serie TV." ;
+                        rdfs:label "ruoloSceneggiatore" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#selezioneDi
+tsao:selezioneDi rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain tsao:Selezione ;
+                 rdfs:range tsao:Premio ;
+                 rdfs:comment "Lega una selezione, lista di candidati unici, ad un premio." ;
+                 rdfs:label "selezioneDi" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#serieHaEpisodio
+tsao:serieHaEpisodio rdf:type owl:ObjectProperty ;
+                     rdfs:domain tsao:SerieTV ;
+                     rdfs:range tsao:Episodio ;
+                     rdfs:comment "Lega un Episodio ad una Serie TV"@it ;
+                     rdfs:label "Serie Ha Episodio"@it .
+
+
+###  https://www.wikidata.org/wiki/Property:P166
+<https://www.wikidata.org/wiki/Property:P166> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain tsao:Persona ;
+                                              rdfs:range tsao:Premio ;
+                                              rdfs:comment "premio assegnato a una persona o organizzazione"@it ;
+                                              rdfs:isDefinedBy "https://www.wikidata.org/wiki/Property:P166" ;
+                                              rdfs:label "premio ricevuto"@it .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#annoCerminoniaPremiazione
+tsao:annoCerminoniaPremiazione rdf:type owl:DatatypeProperty ,
+                                        owl:FunctionalProperty ;
+                               rdfs:domain tsao:CerimoniaPremiazione ;
+                               rdfs:range xsd:unsignedInt ;
+                               rdfs:comment "Identifica l'anno in cui si è svolta una cerimonia di premiazione" ;
+                               rdfs:label "annoCerimoniaPremiazione" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#annoInizioSerie
+tsao:annoInizioSerie rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain tsao:SerieTV ;
+                     rdfs:range xsd:unsignedInt ;
+                     rdfs:comment "L'anno in cui è andata in onda la prima stagione di una serie TV"@it ;
+                     rdfs:label "Anno Inizio Serie"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#annoTermineSerie
+tsao:annoTermineSerie rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain tsao:SerieTV ;
+                      rdfs:range xsd:unsignedInt ;
+                      rdfs:comment "Anno in cui è andata in onda l'ultima stagione di una Serie TV"@it ;
+                      rdfs:label "Anno Termine Serie"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#categoria
+tsao:categoria rdf:type owl:DatatypeProperty ;
+               owl:equivalentProperty <https://schema.org/category> ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain tsao:Premio ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Usata per associare una categoria ai premi" ;
+               rdfs:label "categoriaPremio" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#durataEpisodio
+tsao:durataEpisodio rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain tsao:Episodio ;
+                    rdfs:range xsd:unsignedInt ;
+                    rdfs:comment "Indica la durata di un episodio espressa in minuti"@it ;
+                    rdfs:label "Durata Episodio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#genere
+tsao:genere rdf:type owl:DatatypeProperty ;
+            owl:equivalentProperty <https://schema.org/genre> ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain tsao:SerieTV ;
+            rdfs:range [ rdf:type rdfs:Datatype ;
+                         owl:oneOf [ rdf:type rdf:List ;
+                                     rdf:first "Commedia" ;
+                                     rdf:rest [ rdf:type rdf:List ;
+                                                rdf:first "Drammatica" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "Miniserie" ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                       ] ;
+            rdfs:comment "Identifica il genere di una serie TV" ;
+            rdfs:label "genereSerie" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#nomeEpisodio
+tsao:nomeEpisodio rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain tsao:Episodio ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "nome di un episodio di una serie TV" ;
+                  rdfs:label "nomeEpisodio" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#nomePersona
+tsao:nomePersona rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain tsao:Persona ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "nome di una persona" ;
+                 rdfs:label "nomePersona" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#nomePersonaggio
+tsao:nomePersonaggio rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain tsao:Personaggio ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "nome di un personaggio di una serie TV" ;
+                     rdfs:label "nomePersonaggio" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#nomeSerie
+tsao:nomeSerie rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain tsao:SerieTV ;
+               rdfs:range xsd:string ;
+               rdfs:comment "nome di una serie TV" ;
+               rdfs:label "nomeSerie" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#numeroEpisodi
+tsao:numeroEpisodi rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain tsao:SerieTV ;
+                   rdfs:range xsd:int ;
+                   rdfs:comment "numero di episodi totali di una serie TV" ;
+                   rdfs:label "numeroEpisodi" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#numeroEpisodio
+tsao:numeroEpisodio rdf:type owl:DatatypeProperty ;
+                    rdfs:domain tsao:Episodio ;
+                    rdfs:range xsd:int ;
+                    rdfs:comment "indica il numero sequenziale di un episodio all'interno di una stagione" ;
+                    rdfs:label "numeroEpisodio" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#numeroStagione
+tsao:numeroStagione rdf:type owl:DatatypeProperty ;
+                    rdfs:domain tsao:Stagione ;
+                    rdfs:range xsd:int ;
+                    rdfs:comment "indica il numero sequenziale della stagione all'interno della serie" ;
+                    rdfs:label "numeroStagione" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#numeroStagioni
+tsao:numeroStagioni rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain tsao:SerieTV ;
+                    rdfs:range xsd:int ;
+                    rdfs:comment "rappresenta il numero di stagioni di una serie TV" ;
+                    rdfs:label "numeroStagioni" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#sesso
+tsao:sesso rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain tsao:Persona ;
+           rdfs:range [ rdf:type rdfs:Datatype ;
+                        owl:oneOf [ rdf:type rdf:List ;
+                                    rdf:first "Femmina" ;
+                                    rdf:rest [ rdf:type rdf:List ;
+                                               rdf:first "Maschio" ;
+                                               rdf:rest [ rdf:type rdf:List ;
+                                                          rdf:first "NonBinario" ;
+                                                          rdf:rest rdf:nil
+                                                        ]
+                                             ]
+                                  ]
+                      ] ;
+           rdfs:comment "Proprietà che identifica il sesso di una persona"@it ;
+           rdfs:label "sesso"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#terminata
+tsao:terminata rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain tsao:SerieTV ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment "Valore booleano per indicare se una Serie TV è ancora in corso o è teminata"@it ;
+               rdfs:label "Terminata"@it .
+
+
+###  https://schema.org/category
+<https://schema.org/category> rdf:type owl:DatatypeProperty ,
+                                       owl:FunctionalProperty ;
+                              rdfs:comment "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy." ;
+                              rdfs:isDefinedBy "https://schema.org/category" ;
+                              rdfs:label "category" .
+
+
+###  https://schema.org/genre
+<https://schema.org/genre> rdf:type owl:DatatypeProperty ,
+                                    owl:FunctionalProperty ;
+                           rdfs:comment "Genre of the creative work, broadcast channel or group."@en ;
+                           rdfs:isDefinedBy "https://schema.org/genre"@en ;
+                           rdfs:label "Genre"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection
+<http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Attore
+tsao:Attore rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( tsao:Ruolo
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty tsao:ruoloAttore ;
+                                                         owl:someValuesFrom tsao:SerieTV
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf tsao:Ruolo ;
+            rdfs:comment "Identifica i ruoli ricoperti da un attore che interpreta un personaggio in una Serie TV."@it ;
+            rdfs:label "Attore"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#AttoreNonProtagonista
+tsao:AttoreNonProtagonista rdf:type owl:Class ;
+                           rdfs:subClassOf tsao:Attore ;
+                           rdfs:comment "Identifica gli attori che hanno interpretato personaggi protagonisti in una serie TV"@it ;
+                           rdfs:label "Attore Non Protagonista"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#AttoreProtagonista
+tsao:AttoreProtagonista rdf:type owl:Class ;
+                        rdfs:subClassOf tsao:Attore ;
+                        rdfs:comment "Identifica gli attori che hanno interpretato Personaggi Non Protagonisti in una Serie TV"@it ;
+                        rdfs:label "Attore Protagonista"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#AttoreShow
+tsao:AttoreShow rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( tsao:Persona
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty tsao:recitaIn ;
+                                                             owl:someValuesFrom tsao:SerieTV
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty tsao:sesso ;
+                                                             owl:hasValue "Maschio"
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf tsao:Persona ;
+                owl:disjointWith tsao:AttriceShow ;
+                rdfs:comment "Persona di sesso maschile che ha recitato in uno show (serie TV)"@it ;
+                rdfs:label "Atrore Show"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#AttriceShow
+tsao:AttriceShow rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( tsao:Persona
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty tsao:recitaIn ;
+                                                              owl:someValuesFrom tsao:SerieTV
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty tsao:sesso ;
+                                                              owl:hasValue "Femmina"
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:subClassOf tsao:Persona ;
+                 rdfs:comment "Persona di sesso femminile che ha recitato in uno show (serie TV)"@it ;
+                 rdfs:label "Attrice Show"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Candidatura
+tsao:Candidatura rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( tsao:Ruolo
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty tsao:eContenutoDa ;
+                                                              owl:someValuesFrom tsao:Selezione
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ;
+                 rdfs:comment "Identifica le candidature per i premi, raccolte all'interno di selezioni"@it ;
+                 rdfs:label "Candidatura"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#CerimoniaPremiazione
+tsao:CerimoniaPremiazione rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Class ;
+                                                owl:oneOf ( tsao:EmmyAwards2023
+                                                          )
+                                              ] ;
+                          rdfs:comment "Definisce una cerimonia di premiazione in cui vengono assgnati dei premi a delle serie TV"@it ;
+                          rdfs:label "Cerimonia Premiazione"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Episodio
+tsao:Episodio rdf:type owl:Class ;
+              rdfs:comment "Indica gli episodi di cui è composta una stagione di una serie TV"@it ;
+              rdfs:label "Episodio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttoreNonProtagonistaCommedia
+tsao:MigliorAttoreNonProtagonistaCommedia rdf:type owl:Class ;
+                                          owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty tsao:haCandidato ;
+                                                                                       owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreNonProtagonista
+                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                   owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                   owl:someValuesFrom tsao:SerieCommedia
+                                                                                                                                 ]
+                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                   owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                   owl:allValuesFrom tsao:AttoreShow
+                                                                                                                                 ]
+                                                                                                                               ) ;
+                                                                                                            rdf:type owl:Class
+                                                                                                          ]
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty tsao:categoria ;
+                                                                                       owl:hasValue "Miglior Attore Non Protagonista Serie Commedia"
+                                                                                     ]
+                                                                                   ) ;
+                                                                rdf:type owl:Class
+                                                              ] ;
+                                          rdfs:subClassOf tsao:Premio ;
+                                          rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Non Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
+                                          rdfs:label "Miglior Attore Non Protagonista Commedia"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttoreNonProtagonistaDrammatica
+tsao:MigliorAttoreNonProtagonistaDrammatica rdf:type owl:Class ;
+                                            owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty tsao:haCandidato ;
+                                                                                         owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreNonProtagonista
+                                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                                     owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                     owl:someValuesFrom tsao:SerieDrammatica
+                                                                                                                                   ]
+                                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                                     owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                     owl:allValuesFrom tsao:AttoreShow
+                                                                                                                                   ]
+                                                                                                                                 ) ;
+                                                                                                              rdf:type owl:Class
+                                                                                                            ]
+                                                                                       ]
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty tsao:categoria ;
+                                                                                         owl:hasValue "Miglior Attore Non Protagonista Serie Drammatica"
+                                                                                       ]
+                                                                                     ) ;
+                                                                  rdf:type owl:Class
+                                                                ] ;
+                                            rdfs:subClassOf tsao:Premio ;
+                                            rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Non Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
+                                            rdfs:label "Miglior Attore Non Protagonista Drammatica"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttoreProtagonistaCommedia
+tsao:MigliorAttoreProtagonistaCommedia rdf:type owl:Class ;
+                                       owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty tsao:haCandidato ;
+                                                                                    owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreProtagonista
+                                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                                owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                owl:someValuesFrom tsao:SerieCommedia
+                                                                                                                              ]
+                                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                                owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                owl:allValuesFrom tsao:AttoreShow
+                                                                                                                              ]
+                                                                                                                            ) ;
+                                                                                                         rdf:type owl:Class
+                                                                                                       ]
+                                                                                  ]
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty tsao:categoria ;
+                                                                                    owl:hasValue "Miglior Attore Protagonista Serie Commedia"
+                                                                                  ]
+                                                                                ) ;
+                                                             rdf:type owl:Class
+                                                           ] ;
+                                       rdfs:subClassOf tsao:Premio ;
+                                       rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
+                                       rdfs:label "Miglior Attore Protagonista Commedia"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttoreProtagonistaDrammatica
+tsao:MigliorAttoreProtagonistaDrammatica rdf:type owl:Class ;
+                                         owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty tsao:haCandidato ;
+                                                                                      owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreProtagonista
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                  owl:someValuesFrom tsao:SerieDrammatica
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                  owl:allValuesFrom tsao:AttoreShow
+                                                                                                                                ]
+                                                                                                                              ) ;
+                                                                                                           rdf:type owl:Class
+                                                                                                         ]
+                                                                                    ]
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty tsao:categoria ;
+                                                                                      owl:hasValue "Miglior Attore Protagonista Serie Drammatica"
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ] ;
+                                         rdfs:subClassOf tsao:Premio ;
+                                         rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
+                                         rdfs:label "Miglior Attore Protagonista Drammatica"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttriceNonProtagonistaCommedia
+tsao:MigliorAttriceNonProtagonistaCommedia rdf:type owl:Class ;
+                                           owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty tsao:haCandidato ;
+                                                                                        owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreNonProtagonista
+                                                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                                                    owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                    owl:someValuesFrom tsao:SerieCommedia
+                                                                                                                                  ]
+                                                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                                                    owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                    owl:allValuesFrom tsao:AttriceShow
+                                                                                                                                  ]
+                                                                                                                                ) ;
+                                                                                                             rdf:type owl:Class
+                                                                                                           ]
+                                                                                      ]
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty tsao:categoria ;
+                                                                                        owl:hasValue "Miglior Attrice Non Protagonista Serie Commedia"
+                                                                                      ]
+                                                                                    ) ;
+                                                                 rdf:type owl:Class
+                                                               ] ;
+                                           rdfs:subClassOf tsao:Premio ;
+                                           rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Non Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
+                                           rdfs:label "Miglior Attrice Non Protagonista Commedia"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttriceNonProtagonistaDrammatica
+tsao:MigliorAttriceNonProtagonistaDrammatica rdf:type owl:Class ;
+                                             owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty tsao:haCandidato ;
+                                                                                          owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreNonProtagonista
+                                                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                                                      owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                      owl:someValuesFrom tsao:SerieDrammatica
+                                                                                                                                    ]
+                                                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                                                      owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                      owl:allValuesFrom tsao:AttriceShow
+                                                                                                                                    ]
+                                                                                                                                  ) ;
+                                                                                                               rdf:type owl:Class
+                                                                                                             ]
+                                                                                        ]
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty tsao:categoria ;
+                                                                                          owl:hasValue "Miglior Attrice Non Protagonista Serie Drammatica"
+                                                                                        ]
+                                                                                      ) ;
+                                                                   rdf:type owl:Class
+                                                                 ] ;
+                                             rdfs:subClassOf tsao:Premio ;
+                                             rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Non Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
+                                             rdfs:label "Miglior Attrice Non Protagonista Drammatica"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttriceProtagonistaCommedia
+tsao:MigliorAttriceProtagonistaCommedia rdf:type owl:Class ;
+                                        owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty tsao:haCandidato ;
+                                                                                     owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreProtagonista
+                                                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                                                 owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                 owl:someValuesFrom tsao:SerieCommedia
+                                                                                                                               ]
+                                                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                                                 owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                 owl:allValuesFrom tsao:AttriceShow
+                                                                                                                               ]
+                                                                                                                             ) ;
+                                                                                                          rdf:type owl:Class
+                                                                                                        ]
+                                                                                   ]
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty tsao:categoria ;
+                                                                                     owl:hasValue "Miglior Attrice Protagonista Serie Commedia"
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
+                                                            ] ;
+                                        rdfs:subClassOf tsao:Premio ;
+                                        rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
+                                        rdfs:label "Miglior Attrice Protagonista Commedia"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorAttriceProtagonistaDrammatica
+tsao:MigliorAttriceProtagonistaDrammatica rdf:type owl:Class ;
+                                          owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty tsao:haCandidato ;
+                                                                                       owl:someValuesFrom [ owl:intersectionOf ( tsao:AttoreProtagonista
+                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                   owl:onProperty tsao:ruoloAttore ;
+                                                                                                                                   owl:someValuesFrom tsao:SerieDrammatica
+                                                                                                                                 ]
+                                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                                   owl:onProperty tsao:ruoloInterpretatoDa ;
+                                                                                                                                   owl:allValuesFrom tsao:AttriceShow
+                                                                                                                                 ]
+                                                                                                                               ) ;
+                                                                                                            rdf:type owl:Class
+                                                                                                          ]
+                                                                                     ]
+                                                                                     [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty tsao:categoria ;
+                                                                                       owl:hasValue "Miglior Attrice Protagonista Serie Drammatica"
+                                                                                     ]
+                                                                                   ) ;
+                                                                rdf:type owl:Class
+                                                              ] ;
+                                          rdfs:subClassOf tsao:Premio ;
+                                          rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
+                                          rdfs:label "Miglior Attrice Protagonista Drammatica"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorMiniserie
+tsao:MigliorMiniserie rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty tsao:haCandidato ;
+                                                                   owl:someValuesFrom [ owl:intersectionOf ( tsao:Produttore
+                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty tsao:ruoloProduttore ;
+                                                                                                               owl:someValuesFrom tsao:Miniserie
+                                                                                                             ]
+                                                                                                           ) ;
+                                                                                        rdf:type owl:Class
+                                                                                      ]
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty tsao:categoria ;
+                                                                   owl:hasValue "Miglior Miniserie"
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf tsao:Premio ;
+                      rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Miniserie durante una Cerimonia di Premiazione"@it ;
+                      rdfs:label "Miglior Miniserie"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorSerieCommedia
+tsao:MigliorSerieCommedia rdf:type owl:Class ;
+                          owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty tsao:haCandidato ;
+                                                                       owl:someValuesFrom [ owl:intersectionOf ( tsao:Produttore
+                                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                                   owl:onProperty tsao:ruoloProduttore ;
+                                                                                                                   owl:someValuesFrom tsao:SerieCommedia
+                                                                                                                 ]
+                                                                                                               ) ;
+                                                                                            rdf:type owl:Class
+                                                                                          ]
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty tsao:categoria ;
+                                                                       owl:hasValue "Miglior Serie Commedia"
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ;
+                          rdfs:subClassOf tsao:Premio ;
+                          rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Serie Commedia durante una Cerimonia di Premiazione"@it ;
+                          rdfs:label "Miglior Serie Commedia"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MigliorSerieDrammatica
+tsao:MigliorSerieDrammatica rdf:type owl:Class ;
+                            owl:equivalentClass [ owl:intersectionOf ( tsao:Premio
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty tsao:haCandidato ;
+                                                                         owl:someValuesFrom [ owl:intersectionOf ( tsao:Produttore
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty tsao:ruoloProduttore ;
+                                                                                                                     owl:someValuesFrom tsao:SerieDrammatica
+                                                                                                                   ]
+                                                                                                                 ) ;
+                                                                                              rdf:type owl:Class
+                                                                                            ]
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty tsao:categoria ;
+                                                                         owl:hasValue "Miglior Serie Drammatica"
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
+                                                ] ;
+                            rdfs:subClassOf tsao:Premio ;
+                            rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Serie Drammatica durante una Cerimonia di Premiazione"@it ;
+                            rdfs:label "Miglio Serie Drammatica"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Miniserie
+tsao:Miniserie rdf:type owl:Class ;
+               rdfs:subClassOf tsao:SerieTV ;
+               rdfs:comment "Serielimitate a una stagione con un numero ridotto di episodi"@it ;
+               rdfs:label "Miniserie"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#NonProtagonista
+tsao:NonProtagonista rdf:type owl:Class ;
+                     rdfs:subClassOf tsao:Personaggio ;
+                     owl:disjointWith tsao:Protagonista ;
+                     rdfs:comment "Identifica un personaggio non protagonista in una serie TV."@it ;
+                     rdfs:label "Non Protagonista" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Persona
+tsao:Persona rdf:type owl:Class ;
+             rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ;
+             rdfs:comment "Classe che identifica una persona che ha lavorato nella crazione di una serieTVit"@it ;
+             rdfs:label "Persona"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Personaggio
+tsao:Personaggio rdf:type owl:Class ;
+                 rdfs:comment "Identifica i personaggi di una Serie TV"@it ;
+                 rdfs:label "Personaggio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Premio
+tsao:Premio rdf:type owl:Class ;
+            owl:equivalentClass <https://dbpedia.org/ontology/Award> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty tsao:haSelezione ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass tsao:Selezione
+                                ] ;
+            rdfs:comment "Classe che identifica i premi assegnati nelle Cerimonie di Premiazione"@it ;
+            rdfs:label "Premio"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Produttore
+tsao:Produttore rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( tsao:Ruolo
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty tsao:ruoloProduttore ;
+                                                             owl:someValuesFrom tsao:SerieTV
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf tsao:Ruolo ;
+                rdfs:comment "Identifica i ruoli da produttore associati ad una serie TV"@it ;
+                rdfs:label "Produttore"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ProduttoreShow
+tsao:ProduttoreShow rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( tsao:Persona
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty tsao:haProdotto ;
+                                                                 owl:someValuesFrom tsao:SerieTV
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf tsao:Persona ;
+                    rdfs:comment "Identifica una Persona che ha collaborato alla produzione di una serie TV"@it ;
+                    rdfs:label "Produttore Show"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Protagonista
+tsao:Protagonista rdf:type owl:Class ;
+                  rdfs:subClassOf tsao:Personaggio ;
+                  rdfs:comment "Identifica un personaggio protagonista in una serie TV."@it ;
+                  rdfs:label "Protagonista"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Regista
+tsao:Regista rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( tsao:Ruolo
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty tsao:ruoloRegista ;
+                                                          owl:someValuesFrom tsao:SerieTV
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+             rdfs:subClassOf tsao:Ruolo ;
+             rdfs:comment "Identifica i ruoli di regista assocaiti ad una serie tv"@it ;
+             rdfs:label "Regista"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#RegistraShow
+tsao:RegistraShow rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( tsao:Persona
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty tsao:haDirettoEpisodio ;
+                                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass tsao:Episodio
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf tsao:Persona ;
+                  rdfs:comment "Identifica una persona che ha diretto un Episodio di una Serie TV"@it ;
+                  rdfs:label "Regista Show"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Ruolo
+tsao:Ruolo rdf:type owl:Class ;
+           rdfs:comment "Rappresenta i ruoli ricoperti dalle persone che collaborano alla creazione di una Serie TV"@it ;
+           rdfs:label "Ruolo"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Sceneggiatore
+tsao:Sceneggiatore rdf:type owl:Class ;
+                   owl:equivalentClass [ owl:intersectionOf ( tsao:Ruolo
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty tsao:ruoloSceneggiatore ;
+                                                                owl:someValuesFrom tsao:SerieTV
+                                                              ]
+                                                            ) ;
+                                         rdf:type owl:Class
+                                       ] ;
+                   rdfs:subClassOf tsao:Ruolo ;
+                   rdfs:comment "Identifica uno Sceneggiatore associato ad una Serie TV"@it ;
+                   rdfs:label "Sceneggiatore"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#SceneggiatoreShow
+tsao:SceneggiatoreShow rdf:type owl:Class ;
+                       owl:equivalentClass <https://www.wikidata.org/wiki/Q28389> ,
+                                           [ owl:intersectionOf ( tsao:Persona
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty tsao:haSceneggiatoEpisodio ;
+                                                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                    owl:onClass tsao:Episodio
+                                                                  ]
+                                                                ) ;
+                                             rdf:type owl:Class
+                                           ] ;
+                       rdfs:subClassOf tsao:Persona ;
+                       rdfs:comment "Identifica le Persone che hanno collaborato alla scrittura della sceneggiatura di un episodio"@it ;
+                       rdfs:label "Sceneggiatore Show"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Selezione
+tsao:Selezione rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty tsao:contiene ;
+                                     owl:someValuesFrom tsao:Ruolo
+                                   ] ;
+               rdfs:subClassOf <http://www.ontologydesignpatterns.org/cp/owl/set.owl#Set> ;
+               rdfs:comment "Identifica le candidature associate ad un premio"@it ;
+               rdfs:label "Selezione"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#SerieCommedia
+tsao:SerieCommedia rdf:type owl:Class ;
+                   rdfs:subClassOf tsao:SerieTV ;
+                   rdfs:comment """Serie che si concentrano su narrazioni leggere e umoristiche, spesso
+con risvolti satirici o parodistici."""@it ;
+                   rdfs:label "SerieCommedia"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#SerieDrammatica
+tsao:SerieDrammatica rdf:type owl:Class ;
+                     rdfs:subClassOf tsao:SerieTV ;
+                     rdfs:comment "Serie caratterizzate da toni seri e trame complesse che esplorano i conflitti umani profondi."@it ;
+                     rdfs:label "SerieDrammatica"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#SerieTV
+tsao:SerieTV rdf:type owl:Class ;
+             rdfs:subClassOf <https://schema.org/Product> ;
+             rdfs:comment "Rappresenta le Serie TV che vengono premiate alle Cerimonie di premiazione in base alla tipologia"@it ;
+             rdfs:label "Serie TV"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Stagione
+tsao:Stagione rdf:type owl:Class ;
+              rdfs:comment "rappresenta la o le stagioni di cui è composta una serie TV" ;
+              rdfs:label "Stagione" .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Vincitore
+tsao:Vincitore rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( tsao:Candidatura
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty tsao:haRicevutoPremio ;
+                                                            owl:someValuesFrom tsao:Premio
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf tsao:Candidatura ;
+               rdfs:comment "Identifica le candidature vincitrici di un premio"@it ;
+               rdfs:label "Vincitore"@it .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   rdfs:comment "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered 'agents' in FOAF."@en ;
+                                   rdfs:isDefinedBy <http://xmlns.com/foaf/spec/#term_Person> ;
+                                   rdfs:label "Person"@en .
+
+
+###  https://dbpedia.org/ontology/Award
+<https://dbpedia.org/ontology/Award> rdf:type owl:Class ;
+                                     rdfs:comment "Classe designata da DBpedia per rappresentare i premi"@it ;
+                                     rdfs:isDefinedBy <https://dbpedia.org/ontology/Award> ;
+                                     rdfs:label "Award"@en .
+
+
+###  https://schema.org/Product
+<https://schema.org/Product> rdf:type owl:Class ;
+                             rdfs:comment "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online."@en ;
+                             rdfs:isDefinedBy <https://schema.org/Product> ;
+                             rdfs:label "Product"@en .
+
+
+###  https://www.wikidata.org/wiki/Q28389
+<https://www.wikidata.org/wiki/Q28389> rdf:type owl:Class ;
+                                       rdfs:comment "writer who writes for films, TV shows, comics and games"@en ;
+                                       rdfs:label "Screenwriter"@en .
+
+
+###  https://www.wikidata.org/wiki/Q3282637
+<https://www.wikidata.org/wiki/Q3282637> rdf:type owl:Class ;
+                                         rdfs:label "Film Producer"@en ,
+                                                    "person supervising the making of a film"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#BetterCallSaul
+tsao:BetterCallSaul rdf:type owl:NamedIndividual ;
+                    owl:sameAs <https://www.wikidata.org/wiki/Q14925221> ;
+                    tsao:haPersonaggio tsao:personaggioKimWexler ,
+                                       tsao:personaggioSaulGoodman ;
+                    tsao:annoInizioSerie "2015"^^xsd:unsignedInt ;
+                    tsao:annoTermineSerie "2022"^^xsd:unsignedInt ;
+                    tsao:genere "Drammatica" ;
+                    tsao:nomeSerie "Better Call Saul" ;
+                    tsao:terminata "true"^^xsd:boolean ;
+                    rdfs:comment "Rappresenta la serie TV Better Call Saul"@it ;
+                    rdfs:label "Better Call Saul"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#BobOdenkirk
+tsao:BobOdenkirk rdf:type owl:NamedIndividual ;
+                 owl:sameAs <https://www.wikidata.org/wiki/Q888178> ;
+                 tsao:haRuolo tsao:ruoloAttoreSaulGoodman ;
+                 tsao:nomePersona "Bob Odenkirk" ;
+                 tsao:sesso "Maschio" ;
+                 rdfs:comment "Rappresenta l'attore e produttore Bob Odenkirk"@it ;
+                 rdfs:label "Bob Odenkirk"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#BrianCox
+tsao:BrianCox rdf:type owl:NamedIndividual ;
+              owl:sameAs <https://www.wikidata.org/wiki/Q34975> ;
+              tsao:haRuolo tsao:ruoloAttoreLoganRoy ;
+              tsao:nomePersona "Brian Cox"^^xsd:string ;
+              tsao:sesso "Maschio"^^xsd:string ;
+              rdfs:comment "L'attore Brian Cox"@it ;
+              rdfs:label "Brian Cox"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ConnorsWedding
+tsao:ConnorsWedding rdf:type owl:NamedIndividual ;
+                    tsao:durataEpisodio "70"^^xsd:unsignedInt ;
+                    rdfs:comment "Indica l'episodio della serie TV Succession"@it ;
+                    rdfs:label "Connor's Wedding"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#EmmyAwards2023
+tsao:EmmyAwards2023 rdf:type owl:NamedIndividual ;
+                    tsao:premioConferito tsao:EmmyMigliorAttoreNonProtagonista2023 ,
+                                         tsao:EmmyMiglioreSerieDrammatica2023 ;
+                    tsao:annoCerminoniaPremiazione 2023 ;
+                    rdfs:comment "Cerimonia Emmy Awards 2023"@it ;
+                    rdfs:label "Emmy Awards 2023"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#EmmyMigliorAttoreNonProtagonista2023
+tsao:EmmyMigliorAttoreNonProtagonista2023 rdf:type owl:NamedIndividual ;
+                                          tsao:conferitoA tsao:ruoloAttoreTomWambsgans ;
+                                          tsao:conferitoNelloStessoEvento tsao:EmmyMiglioreSerieDrammatica2023 ;
+                                          tsao:haSelezione tsao:selezioneEmmyMigliorAttoreNonProtagonista2023 ;
+                                          rdfs:comment "Rappresenta il vincitore del premio \"Miglior Attore Non Protagonista\" conferito agli Emmy Award 2023"@it ;
+                                          rdfs:label "Emmy Miglior Attore Non Protagonista 2023"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#EmmyMiglioreSerieDrammatica2023
+tsao:EmmyMiglioreSerieDrammatica2023 rdf:type owl:NamedIndividual ;
+                                     tsao:conferitoA tsao:ruoloProduzioneSuccesion ;
+                                     tsao:conferitoNelloStessoEvento tsao:EmmyMigliorAttoreNonProtagonista2023 ;
+                                     tsao:haSelezione tsao:selezioneEmmyMigliorSerieDrammatica2023 ;
+                                     rdfs:comment "Premio per migliore serie Drammatica nel 2023"@it ;
+                                     rdfs:label "Emmy Migliore Serie Drammatica 2023"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#MatthewMacfadyen
+tsao:MatthewMacfadyen rdf:type owl:NamedIndividual ;
+                      owl:sameAs <https://www.wikidata.org/wiki/Q314954> ;
+                      tsao:haRuolo tsao:ruoloAttoreTomWambsgans ;
+                      tsao:nomePersona "Matthew Macfadyen"^^xsd:string ;
+                      tsao:sesso "Maschio"^^xsd:string ;
+                      rdfs:comment "L'attore e produttore inglese Matthew Macfadyen"@it ;
+                      rdfs:label "Mattew Macdadyen"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Monsters
+tsao:Monsters rdf:type owl:NamedIndividual ;
+              tsao:annoInizioSerie "2022"^^xsd:unsignedInt ;
+              tsao:annoTermineSerie "2022"^^xsd:unsignedInt .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#RheaSeehorn
+tsao:RheaSeehorn rdf:type owl:NamedIndividual ;
+                 owl:sameAs <https://www.wikidata.org/wiki/Q4502477> ;
+                 tsao:haRuolo tsao:ruoloAttoreKimWexler ;
+                 tsao:nomePersona "Rhea Seehorn" ;
+                 tsao:sesso "Femmina" ;
+                 rdfs:comment "Rappresenta l'attrice Rhea Seehorn"@it ;
+                 rdfs:label "Rhea Seehorn"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Stagione3Succession
+tsao:Stagione3Succession rdf:type owl:NamedIndividual ;
+                         tsao:haEpisodio tsao:ConnorsWedding ;
+                         rdfs:comment "Indica la stagione 3 della serie TV succession"@it ;
+                         rdfs:label "Stagione 3 Succession"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#Succession
+tsao:Succession rdf:type owl:NamedIndividual ;
+                owl:sameAs <https://www.wikidata.org/wiki/Q30599007> ;
+                tsao:haPersonaggio tsao:personaggioLoganRoy ,
+                                   tsao:personaggioTomWambsgans ;
+                tsao:haStagione tsao:Stagione3Succession ;
+                tsao:annoInizioSerie "2023"^^xsd:unsignedInt ;
+                tsao:annoTermineSerie "2018"^^xsd:unsignedInt ;
+                tsao:genere "Drammatica"^^xsd:string ;
+                tsao:nomeSerie "Succession" ;
+                tsao:terminata "true"^^xsd:boolean ;
+                rdfs:comment "Rappresenta la serie TV Succession"@it ;
+                rdfs:label "Succession"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#TheBear
+tsao:TheBear rdf:type owl:NamedIndividual ;
+             tsao:genere "Commedia" ;
+             rdfs:comment "Indica la serie TV \"The Bear\""@it ;
+             rdfs:label "Thre Bear"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#VinceGilligan
+tsao:VinceGilligan rdf:type owl:NamedIndividual ;
+                   owl:sameAs <https://www.wikidata.org/wiki/Q4500> ;
+                   tsao:haRuolo tsao:ruoloProduzioneBetterCallSaul ;
+                   rdfs:comment "Rappresenta il produttore e sceneggiatore Vince GIlligan"@it ;
+                   rdfs:label "Vince Gilligan"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#personaggioKimWexler
+tsao:personaggioKimWexler rdf:type owl:NamedIndividual ,
+                                   tsao:NonProtagonista ;
+                          tsao:nomePersonaggio "Kim Wexler"^^xsd:string ;
+                          rdfs:comment "Rappresenta il personaggio non protagonista di Better Call Saul Kim Wexler"@it ;
+                          rdfs:label "Personaggio Kim Wexler"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#personaggioLoganRoy
+tsao:personaggioLoganRoy rdf:type owl:NamedIndividual ,
+                                  tsao:Protagonista ;
+                         tsao:nomePersonaggio "Logan Roy"^^xsd:string ;
+                         rdfs:comment "Uno dei protagonisti della serie tv succession"@it ;
+                         rdfs:label "Personaggio Logan Roy"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#personaggioSaulGoodman
+tsao:personaggioSaulGoodman rdf:type owl:NamedIndividual ,
+                                     tsao:Protagonista ;
+                            tsao:nomePersonaggio "Saul Goodman"^^xsd:string ;
+                            rdfs:comment "Rappresenta il protagonista della serie Better Call Saul Saul Goodman"@it ;
+                            rdfs:label "Personaggio Saul Goodman"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#personaggioTomWambsgans
+tsao:personaggioTomWambsgans rdf:type owl:NamedIndividual ,
+                                      tsao:NonProtagonista ;
+                             tsao:nomePersonaggio "Tom Wambsgans"^^xsd:string ;
+                             rdfs:comment "Rappresenta il personaggio Tom Wambsgans nella serie TV Succession"@it ;
+                             rdfs:label "Personaggio Tom Wambsgans"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloAttoreKimWexler
+tsao:ruoloAttoreKimWexler rdf:type owl:NamedIndividual ;
+                          tsao:ruoloAttoriale tsao:personaggioKimWexler ;
+                          rdfs:comment "Rappresenta il ruolo dell'attore che interpreta il personaggio di Kim Wexler"@it ;
+                          rdfs:label "Ruolo Attore Kim Wexler"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloAttoreLoganRoy
+tsao:ruoloAttoreLoganRoy rdf:type owl:NamedIndividual ;
+                         tsao:ruoloAttoriale tsao:personaggioLoganRoy ;
+                         rdfs:comment "Rappresenta il ruolo dell'attore che interpreta il personaggio di Logan Roy nella serie Tv Succession"@it ;
+                         rdfs:label "Ruolo Attore Logan Roy"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloAttoreSaulGoodman
+tsao:ruoloAttoreSaulGoodman rdf:type owl:NamedIndividual ;
+                            tsao:ruoloAttoriale tsao:personaggioSaulGoodman ;
+                            rdfs:comment "Rappresenta il ruolo ricoperto dall'attore che interpreta il personaggio di Saul Goodman nella serie tv Better Call Saul"@it ;
+                            rdfs:label "Ruolo Attore Saul Goodman"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloAttoreTomWambsgans
+tsao:ruoloAttoreTomWambsgans rdf:type owl:NamedIndividual ;
+                             tsao:ruoloAttoriale tsao:personaggioTomWambsgans ;
+                             rdfs:comment "Rappresenta il ruolo ricoperto dall'attore che intepreta il personaggio di Tom Wambsgans nella serie TV Succession"@it ;
+                             rdfs:label "Ruolo Attore Tom Wambsgans"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloProduzioneBetterCallSaul
+tsao:ruoloProduzioneBetterCallSaul rdf:type owl:NamedIndividual ;
+                                   tsao:ruoloProduttore tsao:BetterCallSaul ;
+                                   rdfs:comment "Ruolo ricoperto da chi ha collaborato alla Produzione di Better Call Saul"@it ;
+                                   rdfs:label "Ruolo Produzione Better Call Saul"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#ruoloProduzioneSuccesion
+tsao:ruoloProduzioneSuccesion rdf:type owl:NamedIndividual ;
+                              tsao:ruoloProduttore tsao:Succession ;
+                              rdfs:comment "Rappresenta chi ha collaborato alla produzione della serie Tv Succession"@it ;
+                              rdfs:label "Ruolo Produzione Succession"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#selezioneEmmyMigliorAttoreNonProtagonista2023
+tsao:selezioneEmmyMigliorAttoreNonProtagonista2023 rdf:type owl:NamedIndividual ;
+                                                   tsao:contiene tsao:ruoloAttoreTomWambsgans ;
+                                                   rdfs:comment "Rappresenta le candidature al premio \"Miglior Attore Non Protagonista\" negli Emmy Awards 2023"@it ;
+                                                   rdfs:label "Selezione Emmy Miglior Attore Non Protagonista 2023"@it .
+
+
+###  http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#selezioneEmmyMigliorSerieDrammatica2023
+tsao:selezioneEmmyMigliorSerieDrammatica2023 rdf:type owl:NamedIndividual ;
+                                             tsao:contiene tsao:ruoloProduzioneBetterCallSaul ,
+                                                           tsao:ruoloProduzioneSuccesion ;
+                                             rdfs:comment "Selezione dei titoli candidati per il premio \"Miglior Serie Drammatica\" nell'anno 2023"@it ;
+                                             rdfs:label "Selezione Emmy Miglior Serie Drammatica 2023"@it .
+
+
+###  https://www.wikidata.org/wiki/Q14925221
+<https://www.wikidata.org/wiki/Q14925221> rdf:type owl:NamedIndividual ;
+                                          rdfs:comment "American crime drama television series (2015–2022)"@en ;
+                                          rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q14925221> ;
+                                          rdfs:label "Better Call Saul"@en .
+
+
+###  https://www.wikidata.org/wiki/Q30599007
+<https://www.wikidata.org/wiki/Q30599007> rdf:type owl:NamedIndividual ;
+                                          rdfs:comment "American comedy-drama television series"@en ;
+                                          rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q30599007> ;
+                                          rdfs:label "Succession"@en .
+
+
+###  https://www.wikidata.org/wiki/Q314954
+<https://www.wikidata.org/wiki/Q314954> rdf:type owl:NamedIndividual ;
+                                        rdfs:comment "English actor"@en ;
+                                        rdfs:label "Matthew Macfadyen"@en .
+
+
+###  https://www.wikidata.org/wiki/Q34975
+<https://www.wikidata.org/wiki/Q34975> rdf:type owl:NamedIndividual ;
+                                       rdfs:comment "Scottish actor"@en ;
+                                       rdfs:label "Brian Cox"@en .
+
+
+###  https://www.wikidata.org/wiki/Q4500
+<https://www.wikidata.org/wiki/Q4500> rdf:type owl:NamedIndividual ;
+                                      rdfs:comment "Vince Gilligan"@en ;
+                                      rdfs:label "American writer, producer, and director"@en .
+
+
+###  https://www.wikidata.org/wiki/Q4502477
+<https://www.wikidata.org/wiki/Q4502477> rdf:type owl:NamedIndividual ;
+                                         rdfs:comment "American actress (born 1972)"@en ;
+                                         rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q4502477> ;
+                                         rdfs:label "Rhea Seehorn"@en .
+
+
+###  https://www.wikidata.org/wiki/Q888178
+<https://www.wikidata.org/wiki/Q888178> rdf:type owl:NamedIndividual ;
+                                        rdfs:comment "American actor, comedian and filmmaker"@en ;
+                                        rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q888178> ;
+                                        rdfs:label "Bob Odenkirk" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( tsao:CerimoniaPremiazione
+                tsao:Persona
+                tsao:Personaggio
+                tsao:Premio
+                tsao:Ruolo
+                tsao:SerieTV
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+tsao:s rdf:type swrl:Variable .
+
+tsao:st rdf:type swrl:Variable .
+
+tsao:e rdf:type swrl:Variable .
+
+tsao:x rdf:type swrl:Variable .
+
+tsao:anno rdf:type swrl:Variable .
+
+tsao:g rdf:type swrl:Variable .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "Collega un episodio alla sua serie TV"^^xsd:string ;
+   rdfs:label "Serie ha episodio"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:SerieTV ;
+                           swrl:argument1 tsao:s
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate tsao:haStagione ;
+                                      swrl:argument1 tsao:s ;
+                                      swrl:argument2 tsao:st
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate tsao:haEpisodio ;
+                                                 swrl:argument1 tsao:st ;
+                                                 swrl:argument2 tsao:e
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate tsao:eEpisodioDiSerie ;
+                           swrl:argument1 tsao:e ;
+                           swrl:argument2 tsao:s
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "Collega una serie TV al suo episodio"^^xsd:string ;
+   rdfs:label "Episodio di una Serie"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:SerieTV ;
+                           swrl:argument1 tsao:s
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate tsao:haStagione ;
+                                      swrl:argument1 tsao:s ;
+                                      swrl:argument2 tsao:st
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate tsao:haEpisodio ;
+                                                 swrl:argument1 tsao:st ;
+                                                 swrl:argument2 tsao:e
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate tsao:serieHaEpisodio ;
+                           swrl:argument1 tsao:s ;
+                           swrl:argument2 tsao:e
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "Ogni Serie che ha l'anno di terminazione uguale all'anno di inizio è considerata una Miniserie"^^xsd:string ;
+   rdfs:label "Miniserie"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:SerieTV ;
+                           swrl:argument1 tsao:x
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate tsao:annoInizioSerie ;
+                                      swrl:argument1 tsao:x ;
+                                      swrl:argument2 tsao:anno
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate tsao:annoTermineSerie ;
+                                                 swrl:argument1 tsao:x ;
+                                                 swrl:argument2 tsao:anno
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:Miniserie ;
+                           swrl:argument1 tsao:x
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "Indica quando una serie TV è una Commedia"^^xsd:string ;
+   rdfs:label "Serie Commedia"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:SerieTV ;
+                           swrl:argument1 tsao:x
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate tsao:genere ;
+                                      swrl:argument1 tsao:x ;
+                                      swrl:argument2 tsao:g
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                 swrl:builtin swrlb:equal ;
+                                                 swrl:arguments [ rdf:type rdf:List ;
+                                                                  rdf:first tsao:g ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "Commedia"^^xsd:string ;
+                                                                             rdf:rest rdf:nil
+                                                                           ]
+                                                                ]
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:SerieCommedia ;
+                           swrl:argument1 tsao:x
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "Indica quando una serie appartiene alla classe SerieDrammatica"^^xsd:string ;
+   rdfs:label "Serie Drammatica"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:SerieTV ;
+                           swrl:argument1 tsao:x
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate tsao:genere ;
+                                      swrl:argument1 tsao:x ;
+                                      swrl:argument2 tsao:g
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:BuiltinAtom ;
+                                                 swrl:builtin swrlb:equal ;
+                                                 swrl:arguments [ rdf:type rdf:List ;
+                                                                  rdf:first tsao:g ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "Drammatica"^^xsd:string ;
+                                                                             rdf:rest rdf:nil
+                                                                           ]
+                                                                ]
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate tsao:SerieDrammatica ;
+                           swrl:argument1 tsao:x
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
