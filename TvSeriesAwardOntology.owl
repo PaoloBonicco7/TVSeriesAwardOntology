@@ -6,7 +6,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/TvSeriesAwardOntology">
-    <Prefix name="" IRI="http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#"/>
+    <Prefix name="" IRI="http://www.semanticweb.org/TvSeriesAwardOntology"/>
     <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
     <Prefix name="wd" IRI="http://www.wikidata.org/entity/"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
@@ -43,7 +43,7 @@
     </Annotation>
     <Annotation>
         <AnnotationProperty IRI="#vann:preferredNamespaceUri"/>
-        <Literal xml:lang="it">http://www.semanticweb.org/TvSeriesAwardOntology</Literal>
+        <Literal>http://www.semanticweb.org/TvSeriesAwardOntology</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -530,6 +530,198 @@
         </ObjectOneOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="#MigliorAttoreNonProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttoreNonProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttoreProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttoreProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceNonProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceNonProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#MigliorMiniserie"/>
         <ObjectIntersectionOf>
             <Class IRI="#Premio"/>
@@ -602,6 +794,10 @@
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Produttore"/>
+        <Class IRI="https://www.wikidata.org/wiki/Q3282637"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Produttore"/>
         <ObjectIntersectionOf>
             <Class IRI="#Ruolo"/>
             <ObjectSomeValuesFrom>
@@ -642,6 +838,10 @@
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#Sceneggiatore"/>
+        <Class IRI="https://www.wikidata.org/wiki/Q28389"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Sceneggiatore"/>
         <ObjectIntersectionOf>
             <Class IRI="#Ruolo"/>
             <ObjectSomeValuesFrom>
@@ -649,10 +849,6 @@
                 <Class IRI="#SerieTV"/>
             </ObjectSomeValuesFrom>
         </ObjectIntersectionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#SceneggiatoreShow"/>
-        <Class IRI="https://www.wikidata.org/wiki/Q28389"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#SceneggiatoreShow"/>
@@ -814,6 +1010,38 @@
         <Class IRI="#Protagonista"/>
     </DisjointClasses>
     <ClassAssertion>
+        <Class IRI="#SerieDrammatica"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SerieTV"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Premio"/>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MigliorSerieDrammatica"/>
+        <NamedIndividual IRI="#EmmyMigliorSerieDrammatica2014"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Premio"/>
+        <NamedIndividual IRI="#EmmyMigliorSerieDrammatica2014"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MigliorSerieDrammatica"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Persona"/>
+        <NamedIndividual IRI="#MatthewMacfadyen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SerieDrammatica"/>
+        <NamedIndividual IRI="#Succession"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SerieTV"/>
         <NamedIndividual IRI="#Succession"/>
     </ClassAssertion>
@@ -957,6 +1185,11 @@
         <NamedIndividual IRI="#Stagione3Succession"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#serieHaVintoPremio"/>
+        <NamedIndividual IRI="#Succession"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#haRuolo"/>
         <NamedIndividual IRI="#VinceGilligan"/>
         <NamedIndividual IRI="#ruoloProduzioneBetterCallSaul"/>
@@ -1042,9 +1275,29 @@
         <Literal>Maschio</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#annoInizioSerie"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2008</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoTermineSerie"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#genere"/>
         <NamedIndividual IRI="#BreakingBad"/>
         <Literal>Drammatica</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomeSerie"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal>Breaking Bad</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#terminata"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#nomePersona"/>
@@ -1758,43 +2011,43 @@
         </Annotation>
         <Annotation>
             <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>S1</Literal>
+            <Literal>Serie ha vinto Premio</Literal>
         </Annotation>
         <Body>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#ruoloAttoriale"/>
-                <Variable abbreviatedIRI="tsao:ruolo"/>
-                <Variable abbreviatedIRI="tsao:personaggio"/>
+                <Variable IRI="#ruolo"/>
+                <Variable IRI="#personaggio"/>
             </ObjectPropertyAtom>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#haRicevutoPremio"/>
-                <Variable abbreviatedIRI="tsao:ruolo"/>
-                <Variable abbreviatedIRI="tsao:premio"/>
+                <Variable IRI="#ruolo"/>
+                <Variable IRI="#premio"/>
             </ObjectPropertyAtom>
             <ClassAtom>
                 <Class IRI="#Persona"/>
-                <Variable abbreviatedIRI="tsao:persona"/>
+                <Variable IRI="#persona"/>
             </ClassAtom>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#haRuolo"/>
-                <Variable abbreviatedIRI="tsao:persona"/>
-                <Variable abbreviatedIRI="tsao:ruolo"/>
+                <Variable IRI="#persona"/>
+                <Variable IRI="#ruolo"/>
             </ObjectPropertyAtom>
             <ClassAtom>
                 <Class IRI="#SerieTV"/>
-                <Variable abbreviatedIRI="tsao:serie"/>
+                <Variable IRI="#serie"/>
             </ClassAtom>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#haPersonaggio"/>
-                <Variable abbreviatedIRI="tsao:serie"/>
-                <Variable abbreviatedIRI="tsao:personaggio"/>
+                <Variable IRI="#serie"/>
+                <Variable IRI="#personaggio"/>
             </ObjectPropertyAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#serieHaVintoPremio"/>
-                <Variable abbreviatedIRI="tsao:serie"/>
-                <Variable abbreviatedIRI="tsao:premio"/>
+                <Variable IRI="#serie"/>
+                <Variable IRI="#premio"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
@@ -1904,76 +2157,6 @@
         <Head>
             <ClassAtom>
                 <Class IRI="#Miniserie"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-            </ClassAtom>
-        </Head>
-    </DLSafeRule>
-    <DLSafeRule>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>Indica quando una serie TV è una Commedia</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>Serie Commedia</Literal>
-        </Annotation>
-        <Body>
-            <BuiltInAtom abbreviatedIRI="swrlb:equal">
-                <Variable abbreviatedIRI="tsao:g"/>
-                <Literal>Commedia</Literal>
-            </BuiltInAtom>
-            <DataPropertyAtom>
-                <DataProperty IRI="#genere"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-                <Variable abbreviatedIRI="tsao:g"/>
-            </DataPropertyAtom>
-            <ClassAtom>
-                <Class IRI="#SerieTV"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-            </ClassAtom>
-        </Body>
-        <Head>
-            <ClassAtom>
-                <Class IRI="#SerieCommedia"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-            </ClassAtom>
-        </Head>
-    </DLSafeRule>
-    <DLSafeRule>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>Indica quando una serie appartiene alla classe SerieDrammatica</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>Serie Drammatica</Literal>
-        </Annotation>
-        <Body>
-            <DataPropertyAtom>
-                <DataProperty IRI="#genere"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-                <Variable abbreviatedIRI="tsao:g"/>
-            </DataPropertyAtom>
-            <ClassAtom>
-                <Class IRI="#SerieTV"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-            </ClassAtom>
-            <BuiltInAtom abbreviatedIRI="swrlb:equal">
-                <Variable abbreviatedIRI="tsao:g"/>
-                <Literal>Drammatica</Literal>
-            </BuiltInAtom>
-        </Body>
-        <Head>
-            <ClassAtom>
-                <Class IRI="#SerieDrammatica"/>
                 <Variable abbreviatedIRI="tsao:x"/>
             </ClassAtom>
         </Head>
@@ -3244,6 +3427,11 @@
         <Literal xml:lang="en">writer who writes for films, TV shows, comics and games</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://www.wikidata.org/wiki/Q28389</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q28389</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>https://www.wikidata.org/wiki/Q28389</IRI>
         <Literal xml:lang="en">Screenwriter</Literal>
@@ -3261,7 +3449,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>https://www.wikidata.org/wiki/Q30599007</IRI>
-        <Literal xml:lang="en">Succession</Literal>
+        <Literal xml:lang="en">Succession Wikidata</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

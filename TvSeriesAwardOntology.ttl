@@ -1,4 +1,4 @@
-@prefix : <http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#> .
+@prefix : <http://www.semanticweb.org/TvSeriesAwardOntology> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -16,12 +16,12 @@
 
 <http://www.semanticweb.org/TvSeriesAwardOntology> rdf:type owl:Ontology ;
                                                     owl:imports <http://www.ontologydesignpatterns.org/cp/owl/set.owl> ;
-                                                    dc:creator "Paolo Bonicco"^^xsd:string ;
+                                                    dc:creator "Paolo Bonicco" ;
                                                     dc:date "12-09-2024"@it ;
                                                     dc:description "Ontologia che modella le serie tv e i premi a loro associati, con le nomination e i premi che hanno vinto. Lo scopo dell'ontologia è raggruppare tutte le informazioni, i premi e le nomination delle principali serie tv degli ultimi anni."@it ;
-                                                    dc:title "Tv Series Award Ontology"^^xsd:string ;
-                                                    :vann:preferredNamespacePrefix "tsao"^^xsd:string ;
-                                                    :vann:preferredNamespaceUri "http://www.semanticweb.org/TvSeriesAwardOntology"@it ;
+                                                    dc:title "Tv Series Award Ontology" ;
+                                                    :vann:preferredNamespacePrefix "tsao" ;
+                                                    :vann:preferredNamespaceUri "http://www.semanticweb.org/TvSeriesAwardOntology" ;
                                                     rdfs:label "Tv Series Award Ontology"@it .
 
 #################################################################
@@ -687,6 +687,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttoreNonProtagonistaCommedia
 :MigliorAttoreNonProtagonistaCommedia rdf:type owl:Class ;
+                                      owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :haCandidato ;
+                                                                                   owl:someValuesFrom [ owl:intersectionOf ( :AttoreNonProtagonista
+                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                               owl:onProperty :ruoloAttore ;
+                                                                                                                               owl:someValuesFrom :SerieCommedia
+                                                                                                                             ]
+                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                               owl:onProperty :ruoloAffidatoA ;
+                                                                                                                               owl:allValuesFrom :AttoreShow
+                                                                                                                             ]
+                                                                                                                           ) ;
+                                                                                                        rdf:type owl:Class
+                                                                                                      ]
+                                                                                 ]
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :categoria ;
+                                                                                   owl:hasValue "Miglior Attore Non Protagonista Serie Commedia"
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
+                                                          ] ;
                                       rdfs:subClassOf :Premio ;
                                       rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Non Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
                                       rdfs:label "Miglior Attore Non Protagonista Commedia"@it .
@@ -694,6 +717,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttoreNonProtagonistaDrammatica
 :MigliorAttoreNonProtagonistaDrammatica rdf:type owl:Class ;
+                                        owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty :haCandidato ;
+                                                                                     owl:someValuesFrom [ owl:intersectionOf ( :AttoreNonProtagonista
+                                                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                                                 owl:onProperty :ruoloAttore ;
+                                                                                                                                 owl:someValuesFrom :SerieDrammatica
+                                                                                                                               ]
+                                                                                                                               [ rdf:type owl:Restriction ;
+                                                                                                                                 owl:onProperty :ruoloAffidatoA ;
+                                                                                                                                 owl:allValuesFrom :AttoreShow
+                                                                                                                               ]
+                                                                                                                             ) ;
+                                                                                                          rdf:type owl:Class
+                                                                                                        ]
+                                                                                   ]
+                                                                                   [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty :categoria ;
+                                                                                     owl:hasValue "Miglior Attore Non Protagonista Serie Drammatica"
+                                                                                   ]
+                                                                                 ) ;
+                                                              rdf:type owl:Class
+                                                            ] ;
                                         rdfs:subClassOf :Premio ;
                                         rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Non Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
                                         rdfs:label "Miglior Attore Non Protagonista Drammatica"@it .
@@ -701,6 +747,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttoreProtagonistaCommedia
 :MigliorAttoreProtagonistaCommedia rdf:type owl:Class ;
+                                   owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty :haCandidato ;
+                                                                                owl:someValuesFrom [ owl:intersectionOf ( :AttoreProtagonista
+                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                            owl:onProperty :ruoloAttore ;
+                                                                                                                            owl:someValuesFrom :SerieCommedia
+                                                                                                                          ]
+                                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                                            owl:onProperty :ruoloAffidatoA ;
+                                                                                                                            owl:allValuesFrom :AttoreShow
+                                                                                                                          ]
+                                                                                                                        ) ;
+                                                                                                     rdf:type owl:Class
+                                                                                                   ]
+                                                                              ]
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty :categoria ;
+                                                                                owl:hasValue "Miglior Attore Protagonista Serie Commedia"
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ] ;
                                    rdfs:subClassOf :Premio ;
                                    rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
                                    rdfs:label "Miglior Attore Protagonista Commedia"@it .
@@ -708,6 +777,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttoreProtagonistaDrammatica
 :MigliorAttoreProtagonistaDrammatica rdf:type owl:Class ;
+                                     owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty :haCandidato ;
+                                                                                  owl:someValuesFrom [ owl:intersectionOf ( :AttoreProtagonista
+                                                                                                                            [ rdf:type owl:Restriction ;
+                                                                                                                              owl:onProperty :ruoloAttore ;
+                                                                                                                              owl:someValuesFrom :SerieDrammatica
+                                                                                                                            ]
+                                                                                                                            [ rdf:type owl:Restriction ;
+                                                                                                                              owl:onProperty :ruoloAffidatoA ;
+                                                                                                                              owl:allValuesFrom :AttoreShow
+                                                                                                                            ]
+                                                                                                                          ) ;
+                                                                                                       rdf:type owl:Class
+                                                                                                     ]
+                                                                                ]
+                                                                                [ rdf:type owl:Restriction ;
+                                                                                  owl:onProperty :categoria ;
+                                                                                  owl:hasValue "Miglior Attore Protagonista Serie Drammatica"
+                                                                                ]
+                                                                              ) ;
+                                                           rdf:type owl:Class
+                                                         ] ;
                                      rdfs:subClassOf :Premio ;
                                      rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attore Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
                                      rdfs:label "Miglior Attore Protagonista Drammatica"@it .
@@ -715,6 +807,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttriceNonProtagonistaCommedia
 :MigliorAttriceNonProtagonistaCommedia rdf:type owl:Class ;
+                                       owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :haCandidato ;
+                                                                                    owl:someValuesFrom [ owl:intersectionOf ( :AttoreNonProtagonista
+                                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                                owl:onProperty :ruoloAttore ;
+                                                                                                                                owl:someValuesFrom :SerieCommedia
+                                                                                                                              ]
+                                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                                owl:onProperty :ruoloAffidatoA ;
+                                                                                                                                owl:allValuesFrom :AttriceShow
+                                                                                                                              ]
+                                                                                                                            ) ;
+                                                                                                         rdf:type owl:Class
+                                                                                                       ]
+                                                                                  ]
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :categoria ;
+                                                                                    owl:hasValue "Miglior Attore Non Protagonista Serie Commedia"
+                                                                                  ]
+                                                                                ) ;
+                                                             rdf:type owl:Class
+                                                           ] ;
                                        rdfs:subClassOf :Premio ;
                                        rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Non Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
                                        rdfs:label "Miglior Attrice Non Protagonista Commedia"@it .
@@ -722,6 +837,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttriceNonProtagonistaDrammatica
 :MigliorAttriceNonProtagonistaDrammatica rdf:type owl:Class ;
+                                         owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty :haCandidato ;
+                                                                                      owl:someValuesFrom [ owl:intersectionOf ( :AttoreNonProtagonista
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty :ruoloAttore ;
+                                                                                                                                  owl:someValuesFrom :SerieDrammatica
+                                                                                                                                ]
+                                                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty :ruoloAffidatoA ;
+                                                                                                                                  owl:allValuesFrom :AttriceShow
+                                                                                                                                ]
+                                                                                                                              ) ;
+                                                                                                           rdf:type owl:Class
+                                                                                                         ]
+                                                                                    ]
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty :categoria ;
+                                                                                      owl:hasValue "Miglior Attore Non Protagonista Serie Drammatica"
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ] ;
                                          rdfs:subClassOf :Premio ;
                                          rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Non Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
                                          rdfs:label "Miglior Attrice Non Protagonista Drammatica"@it .
@@ -729,6 +867,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttriceProtagonistaCommedia
 :MigliorAttriceProtagonistaCommedia rdf:type owl:Class ;
+                                    owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :haCandidato ;
+                                                                                 owl:someValuesFrom [ owl:intersectionOf ( :AttoreProtagonista
+                                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :ruoloAttore ;
+                                                                                                                             owl:someValuesFrom :SerieCommedia
+                                                                                                                           ]
+                                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :ruoloAffidatoA ;
+                                                                                                                             owl:allValuesFrom :AttriceShow
+                                                                                                                           ]
+                                                                                                                         ) ;
+                                                                                                      rdf:type owl:Class
+                                                                                                    ]
+                                                                               ]
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :categoria ;
+                                                                                 owl:hasValue "Miglior Attore Protagonista Serie Commedia"
+                                                                               ]
+                                                                             ) ;
+                                                          rdf:type owl:Class
+                                                        ] ;
                                     rdfs:subClassOf :Premio ;
                                     rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Protagonista in una serie Commedia durante una Cerimonia di Premiazione"@it ;
                                     rdfs:label "Miglior Attrice Protagonista Commedia"@it .
@@ -736,6 +897,29 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MigliorAttriceProtagonistaDrammatica
 :MigliorAttriceProtagonistaDrammatica rdf:type owl:Class ;
+                                      owl:equivalentClass [ owl:intersectionOf ( :Premio
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :haCandidato ;
+                                                                                   owl:someValuesFrom [ owl:intersectionOf ( :AttoreProtagonista
+                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                               owl:onProperty :ruoloAttore ;
+                                                                                                                               owl:someValuesFrom :SerieDrammatica
+                                                                                                                             ]
+                                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                                               owl:onProperty :ruoloAffidatoA ;
+                                                                                                                               owl:allValuesFrom :AttriceShow
+                                                                                                                             ]
+                                                                                                                           ) ;
+                                                                                                        rdf:type owl:Class
+                                                                                                      ]
+                                                                                 ]
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :categoria ;
+                                                                                   owl:hasValue "Miglior Attore Non Protagonista Serie Drammatica"
+                                                                                 ]
+                                                                               ) ;
+                                                            rdf:type owl:Class
+                                                          ] ;
                                       rdfs:subClassOf :Premio ;
                                       rdfs:comment "Rappresenta i premi assegnati nella categoria di Miglior Attrice Protagonista in una serie Drammatica durante una Cerimonia di Premiazione"@it ;
                                       rdfs:label "Miglior Attrice Protagonista Drammatica"@it .
@@ -861,7 +1045,8 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#Produttore
 :Produttore rdf:type owl:Class ;
-            owl:equivalentClass [ owl:intersectionOf ( :Ruolo
+            owl:equivalentClass <https://www.wikidata.org/wiki/Q3282637> ,
+                                [ owl:intersectionOf ( :Ruolo
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty :ruoloProduttore ;
                                                          owl:someValuesFrom :SerieTV
@@ -935,7 +1120,8 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#Sceneggiatore
 :Sceneggiatore rdf:type owl:Class ;
-               owl:equivalentClass [ owl:intersectionOf ( :Ruolo
+               owl:equivalentClass <https://www.wikidata.org/wiki/Q28389> ,
+                                   [ owl:intersectionOf ( :Ruolo
                                                           [ rdf:type owl:Restriction ;
                                                             owl:onProperty :ruoloSceneggiatore ;
                                                             owl:someValuesFrom :SerieTV
@@ -950,8 +1136,7 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#SceneggiatoreShow
 :SceneggiatoreShow rdf:type owl:Class ;
-                   owl:equivalentClass <https://www.wikidata.org/wiki/Q28389> ,
-                                       [ owl:intersectionOf ( :Persona
+                   owl:equivalentClass [ owl:intersectionOf ( :Persona
                                                               [ rdf:type owl:Restriction ;
                                                                 owl:onProperty :haSceneggiatoEpisodio ;
                                                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1042,6 +1227,7 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 ###  https://www.wikidata.org/wiki/Q28389
 <https://www.wikidata.org/wiki/Q28389> rdf:type owl:Class ;
                                        rdfs:comment "writer who writes for films, TV shows, comics and games"@en ;
+                                       rdfs:isDefinedBy "https://www.wikidata.org/wiki/Q28389" ;
                                        rdfs:label "Screenwriter"@en .
 
 
@@ -1080,9 +1266,15 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#BreakingBad
-:BreakingBad rdf:type owl:NamedIndividual ;
+:BreakingBad rdf:type owl:NamedIndividual ,
+                      :SerieDrammatica ,
+                      :SerieTV ;
              :serieHaVintoPremio :EmmyMigliorSerieDrammatica2014 ;
+             :annoInizioSerie 2008 ;
+             :annoTermineSerie 2013 ;
              :genere "Drammatica" ;
+             :nomeSerie "Breaking Bad" ;
+             :terminata "true"^^xsd:boolean ;
              rdfs:comment "Rappresenta la serie TV Breaking Bad"@it ;
              rdfs:label "Breaking Bad"@it .
 
@@ -1091,8 +1283,8 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 :BrianCox rdf:type owl:NamedIndividual ;
           owl:sameAs <https://www.wikidata.org/wiki/Q34975> ;
           :haRuolo :ruoloAttoreLoganRoy ;
-          :nomePersona "Brian Cox"^^xsd:string ;
-          :sesso "Maschio"^^xsd:string ;
+          :nomePersona "Brian Cox" ;
+          :sesso "Maschio" ;
           rdfs:comment "L'attore Brian Cox"@it ;
           rdfs:label "Brian Cox"@it .
 
@@ -1114,7 +1306,8 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#EmmyMigliorAttoreNonProtagonista2023
-:EmmyMigliorAttoreNonProtagonista2023 rdf:type owl:NamedIndividual ;
+:EmmyMigliorAttoreNonProtagonista2023 rdf:type owl:NamedIndividual ,
+                                               :Premio ;
                                       :conferitoA :ruoloAttoreTomWambsgans ;
                                       :conferitoNelloStessoEvento :EmmyMiglioreSerieDrammatica2023 ;
                                       :haSelezione :selezioneEmmyMigliorAttoreNonProtagonista2023 ;
@@ -1123,13 +1316,16 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#EmmyMigliorSerieDrammatica2014
-:EmmyMigliorSerieDrammatica2014 rdf:type owl:NamedIndividual ;
+:EmmyMigliorSerieDrammatica2014 rdf:type owl:NamedIndividual ,
+                                         :MigliorSerieDrammatica ,
+                                         :Premio ;
                                 rdfs:comment "Rappresenta il premio \"Miglior Serie Drammatica\" conferito nell'edizione del 2024 degli Emmy Awards"@it ;
                                 rdfs:label "Emmy Migliore Serie Drammarica 2014"@it .
 
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#EmmyMiglioreSerieDrammatica2023
-:EmmyMiglioreSerieDrammatica2023 rdf:type owl:NamedIndividual ;
+:EmmyMiglioreSerieDrammatica2023 rdf:type owl:NamedIndividual ,
+                                          :MigliorSerieDrammatica ;
                                  :conferitoA :ruoloProduzioneSuccesion ;
                                  :conferitoNelloStessoEvento :EmmyMigliorAttoreNonProtagonista2023 ;
                                  :haSelezione :selezioneEmmyMigliorSerieDrammatica2023 ;
@@ -1138,11 +1334,12 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#MatthewMacfadyen
-:MatthewMacfadyen rdf:type owl:NamedIndividual ;
+:MatthewMacfadyen rdf:type owl:NamedIndividual ,
+                           :Persona ;
                   owl:sameAs <https://www.wikidata.org/wiki/Q314954> ;
                   :haRuolo :ruoloAttoreTomWambsgans ;
-                  :nomePersona "Matthew Macfadyen"^^xsd:string ;
-                  :sesso "Maschio"^^xsd:string ;
+                  :nomePersona "Matthew Macfadyen" ;
+                  :sesso "Maschio" ;
                   rdfs:comment "L'attore e produttore inglese Matthew Macfadyen"@it ;
                   rdfs:label "Mattew Macdadyen"@it .
 
@@ -1175,11 +1372,13 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#Succession
 :Succession rdf:type owl:NamedIndividual ,
+                     :SerieDrammatica ,
                      :SerieTV ;
             owl:sameAs <https://www.wikidata.org/wiki/Q30599007> ;
             :haPersonaggio :personaggioLoganRoy ,
                            :personaggioTomWambsgans ;
             :haStagione :Stagione3Succession ;
+            :serieHaVintoPremio :EmmyMiglioreSerieDrammatica2023 ;
             :annoInizioSerie "2023"^^xsd:unsignedInt ;
             :annoTermineSerie "2018"^^xsd:unsignedInt ;
             :genere "Drammatica" ;
@@ -1207,7 +1406,7 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#personaggioKimWexler
 :personaggioKimWexler rdf:type owl:NamedIndividual ,
                                :NonProtagonista ;
-                      :nomePersonaggio "Kim Wexler"^^xsd:string ;
+                      :nomePersonaggio "Kim Wexler" ;
                       rdfs:comment "Rappresenta il personaggio non protagonista di Better Call Saul Kim Wexler"@it ;
                       rdfs:label "Personaggio Kim Wexler"@it .
 
@@ -1215,7 +1414,7 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#personaggioLoganRoy
 :personaggioLoganRoy rdf:type owl:NamedIndividual ,
                               :Protagonista ;
-                     :nomePersonaggio "Logan Roy"^^xsd:string ;
+                     :nomePersonaggio "Logan Roy" ;
                      rdfs:comment "Uno dei protagonisti della serie tv succession"@it ;
                      rdfs:label "Personaggio Logan Roy"@it .
 
@@ -1223,7 +1422,7 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#personaggioSaulGoodman
 :personaggioSaulGoodman rdf:type owl:NamedIndividual ,
                                  :Protagonista ;
-                        :nomePersonaggio "Saul Goodman"^^xsd:string ;
+                        :nomePersonaggio "Saul Goodman" ;
                         rdfs:comment "Rappresenta il protagonista della serie Better Call Saul Saul Goodman"@it ;
                         rdfs:label "Personaggio Saul Goodman"@it .
 
@@ -1231,7 +1430,7 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 ###  http://www.semanticweb.org/TvSeriesAwardOntology#personaggioTomWambsgans
 :personaggioTomWambsgans rdf:type owl:NamedIndividual ,
                                   :NonProtagonista ;
-                         :nomePersonaggio "Tom Wambsgans"^^xsd:string ;
+                         :nomePersonaggio "Tom Wambsgans" ;
                          rdfs:comment "Rappresenta il personaggio Tom Wambsgans nella serie TV Succession"@it ;
                          rdfs:label "Personaggio Tom Wambsgans"@it .
 
@@ -1304,7 +1503,7 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 <https://www.wikidata.org/wiki/Q30599007> rdf:type owl:NamedIndividual ;
                                           rdfs:comment "American comedy-drama television series"@en ;
                                           rdfs:isDefinedBy <https://www.wikidata.org/wiki/Q30599007> ;
-                                          rdfs:label "Succession"@en .
+                                          rdfs:label "Succession Wikidata"@en .
 
 
 ###  https://www.wikidata.org/wiki/Q314954
@@ -1343,15 +1542,15 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 #    Rules
 #################################################################
 
-tsao:ruolo rdf:type swrl:Variable .
+:ruolo rdf:type swrl:Variable .
 
-tsao:personaggio rdf:type swrl:Variable .
+:personaggio rdf:type swrl:Variable .
 
-tsao:premio rdf:type swrl:Variable .
+:premio rdf:type swrl:Variable .
 
-tsao:persona rdf:type swrl:Variable .
+:persona rdf:type swrl:Variable .
 
-tsao:serie rdf:type swrl:Variable .
+:serie rdf:type swrl:Variable .
 
 tsao:s rdf:type swrl:Variable .
 
@@ -1363,45 +1562,43 @@ tsao:x rdf:type swrl:Variable .
 
 tsao:anno rdf:type swrl:Variable .
 
-tsao:g rdf:type swrl:Variable .
-
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "Collega una SerieTV ad un premio vinto da un attore"^^xsd:string ;
-   rdfs:label "S1"^^xsd:string ;
+   rdfs:comment "Collega una SerieTV ad un premio vinto da un attore" ;
+   rdfs:label "Serie ha vinto Premio" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                            swrl:propertyPredicate :ruoloAttoriale ;
-                           swrl:argument1 tsao:ruolo ;
-                           swrl:argument2 tsao:personaggio
+                           swrl:argument1 :ruolo ;
+                           swrl:argument2 :personaggio
                          ] ;
                rdf:rest [ rdf:type swrl:AtomList ;
                           rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                                       swrl:propertyPredicate :haRicevutoPremio ;
-                                      swrl:argument1 tsao:ruolo ;
-                                      swrl:argument2 tsao:premio
+                                      swrl:argument1 :ruolo ;
+                                      swrl:argument2 :premio
                                     ] ;
                           rdf:rest [ rdf:type swrl:AtomList ;
                                      rdf:first [ rdf:type swrl:ClassAtom ;
                                                  swrl:classPredicate :Persona ;
-                                                 swrl:argument1 tsao:persona
+                                                 swrl:argument1 :persona
                                                ] ;
                                      rdf:rest [ rdf:type swrl:AtomList ;
                                                 rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                                                             swrl:propertyPredicate :haRuolo ;
-                                                            swrl:argument1 tsao:persona ;
-                                                            swrl:argument2 tsao:ruolo
+                                                            swrl:argument1 :persona ;
+                                                            swrl:argument2 :ruolo
                                                           ] ;
                                                 rdf:rest [ rdf:type swrl:AtomList ;
                                                            rdf:first [ rdf:type swrl:ClassAtom ;
                                                                        swrl:classPredicate :SerieTV ;
-                                                                       swrl:argument1 tsao:serie
+                                                                       swrl:argument1 :serie
                                                                      ] ;
                                                            rdf:rest [ rdf:type swrl:AtomList ;
                                                                       rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                                                                                   swrl:propertyPredicate :haPersonaggio ;
-                                                                                  swrl:argument1 tsao:serie ;
-                                                                                  swrl:argument2 tsao:personaggio
+                                                                                  swrl:argument1 :serie ;
+                                                                                  swrl:argument2 :personaggio
                                                                                 ] ;
                                                                       rdf:rest rdf:nil
                                                                     ]
@@ -1413,16 +1610,16 @@ tsao:g rdf:type swrl:Variable .
    swrl:head [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
                            swrl:propertyPredicate :serieHaVintoPremio ;
-                           swrl:argument1 tsao:serie ;
-                           swrl:argument2 tsao:premio
+                           swrl:argument1 :serie ;
+                           swrl:argument2 :premio
                          ] ;
                rdf:rest rdf:nil
              ]
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "Collega un episodio alla sua serie TV"^^xsd:string ;
-   rdfs:label "Serie ha episodio"^^xsd:string ;
+   rdfs:comment "Collega un episodio alla sua serie TV" ;
+   rdfs:label "Serie ha episodio" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
@@ -1456,8 +1653,8 @@ tsao:g rdf:type swrl:Variable .
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "Collega una serie TV al suo episodio"^^xsd:string ;
-   rdfs:label "Episodio di una Serie"^^xsd:string ;
+   rdfs:comment "Collega una serie TV al suo episodio" ;
+   rdfs:label "Episodio di una Serie" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
@@ -1491,8 +1688,8 @@ tsao:g rdf:type swrl:Variable .
  ] .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "Ogni Serie che ha l'anno di terminazione uguale all'anno di inizio è considerata una Miniserie"^^xsd:string ;
-   rdfs:label "Miniserie"^^xsd:string ;
+   rdfs:comment "Ogni Serie che ha l'anno di terminazione uguale all'anno di inizio è considerata una Miniserie" ;
+   rdfs:label "Miniserie" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
@@ -1518,84 +1715,6 @@ tsao:g rdf:type swrl:Variable .
    swrl:head [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
                            swrl:classPredicate :Miniserie ;
-                           swrl:argument1 tsao:x
-                         ] ;
-               rdf:rest rdf:nil
-             ]
- ] .
-
-[ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "Indica quando una serie TV è una Commedia"^^xsd:string ;
-   rdfs:label "Serie Commedia"^^xsd:string ;
-   rdf:type swrl:Imp ;
-   swrl:body [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:BuiltinAtom ;
-                           swrl:builtin swrlb:equal ;
-                           swrl:arguments [ rdf:type rdf:List ;
-                                            rdf:first tsao:g ;
-                                            rdf:rest [ rdf:type rdf:List ;
-                                                       rdf:first "Commedia"^^xsd:string ;
-                                                       rdf:rest rdf:nil
-                                                     ]
-                                          ]
-                         ] ;
-               rdf:rest [ rdf:type swrl:AtomList ;
-                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
-                                      swrl:propertyPredicate :genere ;
-                                      swrl:argument1 tsao:x ;
-                                      swrl:argument2 tsao:g
-                                    ] ;
-                          rdf:rest [ rdf:type swrl:AtomList ;
-                                     rdf:first [ rdf:type swrl:ClassAtom ;
-                                                 swrl:classPredicate :SerieTV ;
-                                                 swrl:argument1 tsao:x
-                                               ] ;
-                                     rdf:rest rdf:nil
-                                   ]
-                        ]
-             ] ;
-   swrl:head [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate :SerieCommedia ;
-                           swrl:argument1 tsao:x
-                         ] ;
-               rdf:rest rdf:nil
-             ]
- ] .
-
-[ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "Indica quando una serie appartiene alla classe SerieDrammatica"^^xsd:string ;
-   rdfs:label "Serie Drammatica"^^xsd:string ;
-   rdf:type swrl:Imp ;
-   swrl:body [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
-                           swrl:propertyPredicate :genere ;
-                           swrl:argument1 tsao:x ;
-                           swrl:argument2 tsao:g
-                         ] ;
-               rdf:rest [ rdf:type swrl:AtomList ;
-                          rdf:first [ rdf:type swrl:ClassAtom ;
-                                      swrl:classPredicate :SerieTV ;
-                                      swrl:argument1 tsao:x
-                                    ] ;
-                          rdf:rest [ rdf:type swrl:AtomList ;
-                                     rdf:first [ rdf:type swrl:BuiltinAtom ;
-                                                 swrl:builtin swrlb:equal ;
-                                                 swrl:arguments [ rdf:type rdf:List ;
-                                                                  rdf:first tsao:g ;
-                                                                  rdf:rest [ rdf:type rdf:List ;
-                                                                             rdf:first "Drammatica"^^xsd:string ;
-                                                                             rdf:rest rdf:nil
-                                                                           ]
-                                                                ]
-                                               ] ;
-                                     rdf:rest rdf:nil
-                                   ]
-                        ]
-             ] ;
-   swrl:head [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate :SerieDrammatica ;
                            swrl:argument1 tsao:x
                          ] ;
                rdf:rest rdf:nil
