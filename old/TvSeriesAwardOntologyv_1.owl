@@ -1,0 +1,3544 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/TvSeriesAwardOntology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/TvSeriesAwardOntology">
+    <Prefix name="" IRI="http://www.semanticweb.org/TvSeriesAwardOntology"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="wd" IRI="http://www.wikidata.org/entity/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="swrl" IRI="http://www.w3.org/2003/11/swrl#"/>
+    <Prefix name="tsao" IRI="http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#"/>
+    <Prefix name="vann" IRI="http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology#vann:"/>
+    <Prefix name="swrla" IRI="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"/>
+    <Prefix name="swrlb" IRI="http://www.w3.org/2003/11/swrlb#"/>
+    <Prefix name="cpannotationschema" IRI="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"/>
+    <Import>http://www.ontologydesignpatterns.org/cp/owl/set.owl</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal>Paolo Bonicco</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+        <Literal xml:lang="it">12-09-2024</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal xml:lang="it">Ontologia che modella le serie tv e i premi a loro associati, con le nomination e i premi che hanno vinto. Lo scopo dell&apos;ontologia è raggruppare tutte le informazioni, i premi e le nomination delle principali serie tv degli ultimi anni.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal>Tv Series Award Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="#vann:preferredNamespacePrefix"/>
+        <Literal>tsao</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="#vann:preferredNamespaceUri"/>
+        <Literal>http://www.semanticweb.org/TvSeriesAwardOntology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal xml:lang="it">Tv Series Award Ontology</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Attore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AttoreNonProtagonista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AttoreProtagonista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AttoreShow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AttriceShow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Candidatura"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CerimoniaPremiazione"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Episodio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttoreNonProtagonistaCommedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttoreNonProtagonistaDrammatica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttoreProtagonistaCommedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttoreProtagonistaDrammatica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttriceNonProtagonistaCommedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttriceNonProtagonistaDrammatica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttriceProtagonistaCommedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorAttriceProtagonistaDrammatica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorMiniserie"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorSerieCommedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MigliorSerieDrammatica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Miniserie"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NonProtagonista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Persona"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Personaggio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Premio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Produttore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProduttoreShow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Protagonista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RegistraShow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ruolo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sceneggiatore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SceneggiatoreShow"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Selezione"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SerieCommedia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SerieDrammatica"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SerieTV"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Stagione"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Vincitore"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://dbpedia.org/ontology/Award"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://schema.org/Product"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://www.wikidata.org/wiki/Q28389"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="https://www.wikidata.org/wiki/Q3282637"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#candidaturaPer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#conRuolo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#conferitoA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#conferitoAPersona"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#conferitoNelloStessoEvento"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#contiene"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#direttoDa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eContenutoDa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eEpisodioDiSerie"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eStatoSceneggiatoDa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haCandidato"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haDirettoEpisodio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haEpisodio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haPersonaggio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haProdotto"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haRicevutoPremio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haRuolo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haSceneggiatoEpisodio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haSelezione"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haSerieTV"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haStagione"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haVintoPremio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#interpretatoDa"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#nominationSerie"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#personaggioDi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#premioConferito"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#recitaIn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ruoloAffidatoA"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ruoloAttore"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ruoloProduttore"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ruoloRegista"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#ruoloSceneggiatore"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#selezioneDi"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#serieHaEpisodio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#serieHaVintoPremio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="https://www.wikidata.org/wiki/Property:P166"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#annoCerminoniaPremiazione"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#annoInizioSerie"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#annoTermineSerie"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#categoria"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#durataEpisodio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#genere"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeEpisodio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomePersona"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomePersonaggio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nomeSerie"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroEpisodi"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroEpisodio"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroStagione"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numeroStagioni"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#sesso"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#terminata"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="https://schema.org/category"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="https://schema.org/genre"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BobOdenkirk"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BreakingBad"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BrianCox"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ConnorsWedding"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EmmyAwards2023"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EmmyMigliorSerieDrammatica2014"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MatthewMacfadyen"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Monsters"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RheaSeehorn"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Stagione3Succession"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Succession"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TheBear"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#VinceGilligan"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#personaggioKimWexler"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#personaggioLoganRoy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#personaggioSaulGoodman"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#personaggioTomWambsgans"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ruoloAttoreKimWexler"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ruoloAttoreLoganRoy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ruoloAttoreSaulGoodman"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ruoloAttoreTomWambsgans"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ruoloProduzioneBetterCallSaul"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ruoloProduzioneSuccesion"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#selezioneEmmyMigliorAttoreNonProtagonista2023"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#selezioneEmmyMigliorSerieDrammatica2023"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q14925221"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q30599007"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q314954"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q34975"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q4500"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q4502477"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q888178"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#vann:preferredNamespacePrefix"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#vann:preferredNamespaceUri"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Attore"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Ruolo"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#ruoloAttore"/>
+                <Class IRI="#SerieTV"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#AttoreShow"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Persona"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#recitaIn"/>
+                <Class IRI="#SerieTV"/>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#sesso"/>
+                <Literal>Maschio</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#AttriceShow"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Persona"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#recitaIn"/>
+                <Class IRI="#SerieTV"/>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#sesso"/>
+                <Literal>Femmina</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Candidatura"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Ruolo"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#eContenutoDa"/>
+                <Class IRI="#Selezione"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CerimoniaPremiazione"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#EmmyAwards2023"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttoreNonProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttoreNonProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttoreProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttoreProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttoreShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceNonProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceNonProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreNonProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceProtagonistaCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Protagonista Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorAttriceProtagonistaDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#AttoreProtagonista"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloAttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                    <ObjectAllValuesFrom>
+                        <ObjectProperty IRI="#ruoloAffidatoA"/>
+                        <Class IRI="#AttriceShow"/>
+                    </ObjectAllValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Attore Non Protagonista Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorMiniserie"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Produttore"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloProduttore"/>
+                        <Class IRI="#Miniserie"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Miniserie</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorSerieCommedia"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Produttore"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloProduttore"/>
+                        <Class IRI="#SerieCommedia"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Serie Commedia</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#MigliorSerieDrammatica"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Premio"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haCandidato"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Produttore"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#ruoloProduttore"/>
+                        <Class IRI="#SerieDrammatica"/>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+            <DataHasValue>
+                <DataProperty IRI="#categoria"/>
+                <Literal>Miglior Serie Drammatica</Literal>
+            </DataHasValue>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Premio"/>
+        <Class IRI="https://dbpedia.org/ontology/Award"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Premio"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#haSelezione"/>
+            <Class IRI="#Selezione"/>
+        </ObjectExactCardinality>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Produttore"/>
+        <Class IRI="https://www.wikidata.org/wiki/Q3282637"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Produttore"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Ruolo"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#ruoloProduttore"/>
+                <Class IRI="#SerieTV"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ProduttoreShow"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Persona"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haProdotto"/>
+                <Class IRI="#SerieTV"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Regista"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Ruolo"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#ruoloRegista"/>
+                <Class IRI="#SerieTV"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RegistraShow"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Persona"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#haDirettoEpisodio"/>
+                <Class IRI="#Episodio"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Sceneggiatore"/>
+        <Class IRI="https://www.wikidata.org/wiki/Q28389"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Sceneggiatore"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Ruolo"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#ruoloSceneggiatore"/>
+                <Class IRI="#SerieTV"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SceneggiatoreShow"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Persona"/>
+            <ObjectMinCardinality cardinality="1">
+                <ObjectProperty IRI="#haSceneggiatoEpisodio"/>
+                <Class IRI="#Episodio"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Selezione"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#contiene"/>
+            <Class IRI="#Ruolo"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Vincitore"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Candidatura"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#haRicevutoPremio"/>
+                <Class IRI="#Premio"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Attore"/>
+        <Class IRI="#Ruolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttoreNonProtagonista"/>
+        <Class IRI="#Attore"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttoreProtagonista"/>
+        <Class IRI="#Attore"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttoreShow"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AttriceShow"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttoreNonProtagonistaCommedia"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttoreNonProtagonistaDrammatica"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttoreProtagonistaCommedia"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttoreProtagonistaDrammatica"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttriceNonProtagonistaCommedia"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttriceNonProtagonistaDrammatica"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttriceProtagonistaCommedia"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorAttriceProtagonistaDrammatica"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorMiniserie"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorSerieCommedia"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MigliorSerieDrammatica"/>
+        <Class IRI="#Premio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Miniserie"/>
+        <Class IRI="#SerieTV"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NonProtagonista"/>
+        <Class IRI="#Personaggio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Persona"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Produttore"/>
+        <Class IRI="#Ruolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProduttoreShow"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Protagonista"/>
+        <Class IRI="#Personaggio"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regista"/>
+        <Class IRI="#Ruolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RegistraShow"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sceneggiatore"/>
+        <Class IRI="#Ruolo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SceneggiatoreShow"/>
+        <Class IRI="#Persona"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Selezione"/>
+        <Class IRI="http://www.ontologydesignpatterns.org/cp/owl/set.owl#Set"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SerieCommedia"/>
+        <Class IRI="#SerieTV"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SerieDrammatica"/>
+        <Class IRI="#SerieTV"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SerieTV"/>
+        <Class IRI="https://schema.org/Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Vincitore"/>
+        <Class IRI="#Candidatura"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#AttoreShow"/>
+        <Class IRI="#AttriceShow"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#NonProtagonista"/>
+        <Class IRI="#Protagonista"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class IRI="#SerieDrammatica"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SerieTV"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Premio"/>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MigliorSerieDrammatica"/>
+        <NamedIndividual IRI="#EmmyMigliorSerieDrammatica2014"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Premio"/>
+        <NamedIndividual IRI="#EmmyMigliorSerieDrammatica2014"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MigliorSerieDrammatica"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Persona"/>
+        <NamedIndividual IRI="#MatthewMacfadyen"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SerieDrammatica"/>
+        <NamedIndividual IRI="#Succession"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#SerieTV"/>
+        <NamedIndividual IRI="#Succession"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NonProtagonista"/>
+        <NamedIndividual IRI="#personaggioKimWexler"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Protagonista"/>
+        <NamedIndividual IRI="#personaggioLoganRoy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Protagonista"/>
+        <NamedIndividual IRI="#personaggioSaulGoodman"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#NonProtagonista"/>
+        <NamedIndividual IRI="#personaggioTomWambsgans"/>
+    </ClassAssertion>
+    <SameIndividual>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q14925221"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#BobOdenkirk"/>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q888178"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#BrianCox"/>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q34975"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#MatthewMacfadyen"/>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q314954"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#RheaSeehorn"/>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q4502477"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#Succession"/>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q30599007"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual IRI="#VinceGilligan"/>
+        <NamedIndividual IRI="https://www.wikidata.org/wiki/Q4500"/>
+    </SameIndividual>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPersonaggio"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <NamedIndividual IRI="#personaggioKimWexler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPersonaggio"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <NamedIndividual IRI="#personaggioSaulGoodman"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haRuolo"/>
+        <NamedIndividual IRI="#BobOdenkirk"/>
+        <NamedIndividual IRI="#ruoloAttoreSaulGoodman"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#serieHaVintoPremio"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <NamedIndividual IRI="#EmmyMigliorSerieDrammatica2014"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haRuolo"/>
+        <NamedIndividual IRI="#BrianCox"/>
+        <NamedIndividual IRI="#ruoloAttoreLoganRoy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#premioConferito"/>
+        <NamedIndividual IRI="#EmmyAwards2023"/>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#premioConferito"/>
+        <NamedIndividual IRI="#EmmyAwards2023"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#conferitoA"/>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+        <NamedIndividual IRI="#ruoloAttoreTomWambsgans"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#conferitoNelloStessoEvento"/>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haSelezione"/>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+        <NamedIndividual IRI="#selezioneEmmyMigliorAttoreNonProtagonista2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#conferitoA"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+        <NamedIndividual IRI="#ruoloProduzioneSuccesion"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#conferitoNelloStessoEvento"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+        <NamedIndividual IRI="#EmmyMigliorAttoreNonProtagonista2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haSelezione"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+        <NamedIndividual IRI="#selezioneEmmyMigliorSerieDrammatica2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haRuolo"/>
+        <NamedIndividual IRI="#MatthewMacfadyen"/>
+        <NamedIndividual IRI="#ruoloAttoreTomWambsgans"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haRuolo"/>
+        <NamedIndividual IRI="#RheaSeehorn"/>
+        <NamedIndividual IRI="#ruoloAttoreKimWexler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haEpisodio"/>
+        <NamedIndividual IRI="#Stagione3Succession"/>
+        <NamedIndividual IRI="#ConnorsWedding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPersonaggio"/>
+        <NamedIndividual IRI="#Succession"/>
+        <NamedIndividual IRI="#personaggioLoganRoy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haPersonaggio"/>
+        <NamedIndividual IRI="#Succession"/>
+        <NamedIndividual IRI="#personaggioTomWambsgans"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haStagione"/>
+        <NamedIndividual IRI="#Succession"/>
+        <NamedIndividual IRI="#Stagione3Succession"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#serieHaVintoPremio"/>
+        <NamedIndividual IRI="#Succession"/>
+        <NamedIndividual IRI="#EmmyMiglioreSerieDrammatica2023"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#haRuolo"/>
+        <NamedIndividual IRI="#VinceGilligan"/>
+        <NamedIndividual IRI="#ruoloProduzioneBetterCallSaul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+        <NamedIndividual IRI="#ruoloAttoreKimWexler"/>
+        <NamedIndividual IRI="#personaggioKimWexler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+        <NamedIndividual IRI="#ruoloAttoreLoganRoy"/>
+        <NamedIndividual IRI="#personaggioLoganRoy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+        <NamedIndividual IRI="#ruoloAttoreSaulGoodman"/>
+        <NamedIndividual IRI="#personaggioSaulGoodman"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+        <NamedIndividual IRI="#ruoloAttoreTomWambsgans"/>
+        <NamedIndividual IRI="#personaggioTomWambsgans"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ruoloProduttore"/>
+        <NamedIndividual IRI="#ruoloProduzioneBetterCallSaul"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#ruoloProduttore"/>
+        <NamedIndividual IRI="#ruoloProduzioneSuccesion"/>
+        <NamedIndividual IRI="#Succession"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contiene"/>
+        <NamedIndividual IRI="#selezioneEmmyMigliorAttoreNonProtagonista2023"/>
+        <NamedIndividual IRI="#ruoloAttoreTomWambsgans"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contiene"/>
+        <NamedIndividual IRI="#selezioneEmmyMigliorSerieDrammatica2023"/>
+        <NamedIndividual IRI="#ruoloProduzioneBetterCallSaul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#contiene"/>
+        <NamedIndividual IRI="#selezioneEmmyMigliorSerieDrammatica2023"/>
+        <NamedIndividual IRI="#ruoloProduzioneSuccesion"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoInizioSerie"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedInt">2015</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoTermineSerie"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedInt">2022</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <Literal>Drammatica</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomeSerie"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <Literal>Better Call Saul</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#terminata"/>
+        <NamedIndividual IRI="#BetterCallSaul"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersona"/>
+        <NamedIndividual IRI="#BobOdenkirk"/>
+        <Literal>Bob Odenkirk</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sesso"/>
+        <NamedIndividual IRI="#BobOdenkirk"/>
+        <Literal>Maschio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoInizioSerie"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2008</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoTermineSerie"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal>Drammatica</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomeSerie"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal>Breaking Bad</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#terminata"/>
+        <NamedIndividual IRI="#BreakingBad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersona"/>
+        <NamedIndividual IRI="#BrianCox"/>
+        <Literal>Brian Cox</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sesso"/>
+        <NamedIndividual IRI="#BrianCox"/>
+        <Literal>Maschio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#durataEpisodio"/>
+        <NamedIndividual IRI="#ConnorsWedding"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedInt">70</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoCerminoniaPremiazione"/>
+        <NamedIndividual IRI="#EmmyAwards2023"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2023</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersona"/>
+        <NamedIndividual IRI="#MatthewMacfadyen"/>
+        <Literal>Matthew Macfadyen</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sesso"/>
+        <NamedIndividual IRI="#MatthewMacfadyen"/>
+        <Literal>Maschio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoInizioSerie"/>
+        <NamedIndividual IRI="#Monsters"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedInt">2022</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoTermineSerie"/>
+        <NamedIndividual IRI="#Monsters"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedInt">2022</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#Monsters"/>
+        <Literal>Miniserie</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersona"/>
+        <NamedIndividual IRI="#RheaSeehorn"/>
+        <Literal>Rhea Seehorn</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#sesso"/>
+        <NamedIndividual IRI="#RheaSeehorn"/>
+        <Literal>Femmina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoInizioSerie"/>
+        <NamedIndividual IRI="#Succession"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedInt">2023</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#annoTermineSerie"/>
+        <NamedIndividual IRI="#Succession"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#unsignedInt">2018</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#Succession"/>
+        <Literal>Drammatica</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomeSerie"/>
+        <NamedIndividual IRI="#Succession"/>
+        <Literal>Succession</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#terminata"/>
+        <NamedIndividual IRI="#Succession"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#genere"/>
+        <NamedIndividual IRI="#TheBear"/>
+        <Literal>Commedia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersonaggio"/>
+        <NamedIndividual IRI="#personaggioKimWexler"/>
+        <Literal>Kim Wexler</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersonaggio"/>
+        <NamedIndividual IRI="#personaggioLoganRoy"/>
+        <Literal>Logan Roy</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersonaggio"/>
+        <NamedIndividual IRI="#personaggioSaulGoodman"/>
+        <Literal>Saul Goodman</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nomePersonaggio"/>
+        <NamedIndividual IRI="#personaggioTomWambsgans"/>
+        <Literal>Tom Wambsgans</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#contiene"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#eContenutoDa"/>
+        <ObjectProperty IRI="http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#haVintoPremio"/>
+        <ObjectProperty IRI="https://www.wikidata.org/wiki/Property:P166"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#ruoloAttore"/>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#ruoloProduttore"/>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#ruoloRegista"/>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#ruoloSceneggiatore"/>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#conRuolo"/>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#conferitoA"/>
+        <ObjectProperty IRI="#haRicevutoPremio"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#conferitoAPersona"/>
+        <ObjectProperty IRI="#haVintoPremio"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#contiene"/>
+        <ObjectProperty IRI="#eContenutoDa"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#direttoDa"/>
+        <ObjectProperty IRI="#haDirettoEpisodio"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#eStatoSceneggiatoDa"/>
+        <ObjectProperty IRI="#haSceneggiatoEpisodio"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#haPersonaggio"/>
+        <ObjectProperty IRI="#personaggioDi"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#haRuolo"/>
+        <ObjectProperty IRI="#ruoloAffidatoA"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#haSelezione"/>
+        <ObjectProperty IRI="#selezioneDi"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#interpretatoDa"/>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#conferitoA"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#ruoloAffidatoA"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#selezioneDi"/>
+    </FunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#conferitoNelloStessoEvento"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#conferitoNelloStessoEvento"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#candidaturaPer"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#conRuolo"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#conferitoA"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#conferitoAPersona"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#conferitoNelloStessoEvento"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#contiene"/>
+        <Class IRI="#Selezione"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#direttoDa"/>
+        <Class IRI="#Episodio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#eContenutoDa"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#eEpisodioDiSerie"/>
+        <Class IRI="#Episodio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#eStatoSceneggiatoDa"/>
+        <Class IRI="#Episodio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haCandidato"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haDirettoEpisodio"/>
+        <Class IRI="#RegistraShow"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haEpisodio"/>
+        <Class IRI="#Stagione"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haPersonaggio"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haProdotto"/>
+        <Class IRI="#ProduttoreShow"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haRicevutoPremio"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haRuolo"/>
+        <Class IRI="#Persona"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haSceneggiatoEpisodio"/>
+        <Class IRI="#SceneggiatoreShow"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haSelezione"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haStagione"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#haVintoPremio"/>
+        <Class IRI="#Persona"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#interpretatoDa"/>
+        <Class IRI="#Personaggio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#nominationSerie"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#personaggioDi"/>
+        <Class IRI="#Personaggio"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#premioConferito"/>
+        <Class IRI="#CerimoniaPremiazione"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#recitaIn"/>
+        <Class IRI="#Persona"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ruoloAffidatoA"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ruoloAttore"/>
+        <Class IRI="#Attore"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ruoloProduttore"/>
+        <Class IRI="#Produttore"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ruoloRegista"/>
+        <Class IRI="#Regista"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#ruoloSceneggiatore"/>
+        <Class IRI="#Sceneggiatore"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#selezioneDi"/>
+        <Class IRI="#Selezione"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#serieHaEpisodio"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#serieHaVintoPremio"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="https://www.wikidata.org/wiki/Property:P166"/>
+        <Class IRI="#Persona"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#conRuolo"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#conferitoA"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#conferitoAPersona"/>
+        <Class IRI="#Persona"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#conferitoNelloStessoEvento"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#contiene"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#direttoDa"/>
+        <Class IRI="#RegistraShow"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#eContenutoDa"/>
+        <Class IRI="#Selezione"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#eEpisodioDiSerie"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#eStatoSceneggiatoDa"/>
+        <Class IRI="#SceneggiatoreShow"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haCandidato"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haDirettoEpisodio"/>
+        <Class IRI="#Episodio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haEpisodio"/>
+        <Class IRI="#Episodio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haPersonaggio"/>
+        <Class IRI="#Personaggio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haProdotto"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haRicevutoPremio"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haRuolo"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haSceneggiatoEpisodio"/>
+        <Class IRI="#Episodio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haSelezione"/>
+        <Class IRI="#Selezione"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haStagione"/>
+        <Class IRI="#Stagione"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#haVintoPremio"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#interpretatoDa"/>
+        <Class IRI="#Ruolo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#nominationSerie"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#personaggioDi"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#premioConferito"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#recitaIn"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ruoloAffidatoA"/>
+        <Class IRI="#Persona"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ruoloAttore"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ruoloAttoriale"/>
+        <Class IRI="#Personaggio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ruoloInSerie"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ruoloProduttore"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ruoloRegista"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#ruoloSceneggiatore"/>
+        <Class IRI="#SerieTV"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#selezioneDi"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#serieHaEpisodio"/>
+        <Class IRI="#Episodio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#serieHaVintoPremio"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="https://www.wikidata.org/wiki/Property:P166"/>
+        <Class IRI="#Premio"/>
+    </ObjectPropertyRange>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#conferitoA"/>
+            <ObjectProperty IRI="#ruoloAffidatoA"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#conferitoAPersona"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#haRuolo"/>
+            <ObjectProperty IRI="#ruoloAttoriale"/>
+            <ObjectProperty IRI="#personaggioDi"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#recitaIn"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#haRuolo"/>
+            <ObjectProperty IRI="#ruoloProduttore"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#haProdotto"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#ruoloAttoriale"/>
+            <ObjectProperty IRI="#personaggioDi"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#ruoloAttore"/>
+    </SubObjectPropertyOf>
+    <EquivalentDataProperties>
+        <DataProperty IRI="#categoria"/>
+        <DataProperty IRI="https://schema.org/category"/>
+    </EquivalentDataProperties>
+    <EquivalentDataProperties>
+        <DataProperty IRI="#genere"/>
+        <DataProperty IRI="https://schema.org/genre"/>
+    </EquivalentDataProperties>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#annoCerminoniaPremiazione"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#annoInizioSerie"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#annoTermineSerie"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#categoria"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#durataEpisodio"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#genere"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#nomeEpisodio"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#nomePersona"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#nomePersonaggio"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#nomeSerie"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#numeroEpisodi"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#numeroStagioni"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#sesso"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="#terminata"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="https://schema.org/category"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty IRI="https://schema.org/genre"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty IRI="#annoCerminoniaPremiazione"/>
+        <Class IRI="#CerimoniaPremiazione"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#annoInizioSerie"/>
+        <Class IRI="#SerieTV"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#annoTermineSerie"/>
+        <Class IRI="#SerieTV"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#categoria"/>
+        <Class IRI="#Premio"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#durataEpisodio"/>
+        <Class IRI="#Episodio"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#genere"/>
+        <Class IRI="#SerieTV"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeEpisodio"/>
+        <Class IRI="#Episodio"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomePersona"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomePersonaggio"/>
+        <Class IRI="#Personaggio"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nomeSerie"/>
+        <Class IRI="#SerieTV"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroEpisodi"/>
+        <Class IRI="#SerieTV"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroEpisodio"/>
+        <Class IRI="#Episodio"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroStagione"/>
+        <Class IRI="#Stagione"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numeroStagioni"/>
+        <Class IRI="#SerieTV"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#sesso"/>
+        <Class IRI="#Persona"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#terminata"/>
+        <Class IRI="#SerieTV"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#annoCerminoniaPremiazione"/>
+        <Datatype abbreviatedIRI="xsd:unsignedInt"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#annoInizioSerie"/>
+        <Datatype abbreviatedIRI="xsd:unsignedInt"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#annoTermineSerie"/>
+        <Datatype abbreviatedIRI="xsd:unsignedInt"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#categoria"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#durataEpisodio"/>
+        <Datatype abbreviatedIRI="xsd:unsignedInt"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#genere"/>
+        <DataOneOf>
+            <Literal>Commedia</Literal>
+            <Literal>Drammatica</Literal>
+            <Literal>Miniserie</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeEpisodio"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomePersona"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomePersonaggio"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nomeSerie"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroEpisodi"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroEpisodio"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroStagione"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numeroStagioni"/>
+        <Datatype abbreviatedIRI="xsd:int"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#sesso"/>
+        <DataOneOf>
+            <Literal>Femmina</Literal>
+            <Literal>Maschio</Literal>
+            <Literal>NonBinario</Literal>
+        </DataOneOf>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#terminata"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Collega una SerieTV ad un premio vinto da un attore</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Serie ha vinto Premio</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#ruoloAttoriale"/>
+                <Variable IRI="#ruolo"/>
+                <Variable IRI="#personaggio"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haRicevutoPremio"/>
+                <Variable IRI="#ruolo"/>
+                <Variable IRI="#premio"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#Persona"/>
+                <Variable IRI="#persona"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haRuolo"/>
+                <Variable IRI="#persona"/>
+                <Variable IRI="#ruolo"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#SerieTV"/>
+                <Variable IRI="#serie"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haPersonaggio"/>
+                <Variable IRI="#serie"/>
+                <Variable IRI="#personaggio"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#serieHaVintoPremio"/>
+                <Variable IRI="#serie"/>
+                <Variable IRI="#premio"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Collega un episodio alla sua serie TV</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Serie ha episodio</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#SerieTV"/>
+                <Variable abbreviatedIRI="tsao:s"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haEpisodio"/>
+                <Variable abbreviatedIRI="tsao:st"/>
+                <Variable abbreviatedIRI="tsao:e"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haStagione"/>
+                <Variable abbreviatedIRI="tsao:s"/>
+                <Variable abbreviatedIRI="tsao:st"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#eEpisodioDiSerie"/>
+                <Variable abbreviatedIRI="tsao:e"/>
+                <Variable abbreviatedIRI="tsao:s"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Collega una serie TV al suo episodio</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Episodio di una Serie</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#SerieTV"/>
+                <Variable abbreviatedIRI="tsao:s"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haEpisodio"/>
+                <Variable abbreviatedIRI="tsao:st"/>
+                <Variable abbreviatedIRI="tsao:e"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haStagione"/>
+                <Variable abbreviatedIRI="tsao:s"/>
+                <Variable abbreviatedIRI="tsao:st"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#serieHaEpisodio"/>
+                <Variable abbreviatedIRI="tsao:s"/>
+                <Variable abbreviatedIRI="tsao:e"/>
+            </ObjectPropertyAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Ogni Serie che ha l&apos;anno di terminazione uguale all&apos;anno di inizio è considerata una Miniserie</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Miniserie</Literal>
+        </Annotation>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty IRI="#annoInizioSerie"/>
+                <Variable abbreviatedIRI="tsao:x"/>
+                <Variable abbreviatedIRI="tsao:anno"/>
+            </DataPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#SerieTV"/>
+                <Variable abbreviatedIRI="tsao:x"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#annoTermineSerie"/>
+                <Variable abbreviatedIRI="tsao:x"/>
+                <Variable abbreviatedIRI="tsao:anno"/>
+            </DataPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#Miniserie"/>
+                <Variable abbreviatedIRI="tsao:x"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Attore</IRI>
+        <Literal xml:lang="it">Identifica i ruoli ricoperti da un attore che interpreta un personaggio in una Serie TV.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Attore</IRI>
+        <Literal xml:lang="it">Attore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AttoreNonProtagonista</IRI>
+        <Literal xml:lang="it">Identifica gli attori che hanno interpretato personaggi protagonisti in una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AttoreNonProtagonista</IRI>
+        <Literal xml:lang="it">Attore Non Protagonista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AttoreProtagonista</IRI>
+        <Literal xml:lang="it">Identifica gli attori che hanno interpretato Personaggi Non Protagonisti in una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AttoreProtagonista</IRI>
+        <Literal xml:lang="it">Attore Protagonista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AttoreShow</IRI>
+        <Literal xml:lang="it">Persona di sesso maschile che ha recitato in uno show (serie TV)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AttoreShow</IRI>
+        <Literal xml:lang="it">Atrore Show</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AttriceShow</IRI>
+        <Literal xml:lang="it">Persona di sesso femminile che ha recitato in uno show (serie TV)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AttriceShow</IRI>
+        <Literal xml:lang="it">Attrice Show</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BetterCallSaul</IRI>
+        <Literal xml:lang="it">Rappresenta la serie TV Better Call Saul</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BetterCallSaul</IRI>
+        <Literal xml:lang="it">Better Call Saul</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BobOdenkirk</IRI>
+        <Literal xml:lang="it">Rappresenta l&apos;attore e produttore Bob Odenkirk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BobOdenkirk</IRI>
+        <Literal xml:lang="it">Bob Odenkirk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BreakingBad</IRI>
+        <Literal xml:lang="it">Rappresenta la serie TV Breaking Bad</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BreakingBad</IRI>
+        <Literal xml:lang="it">Breaking Bad</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#BrianCox</IRI>
+        <Literal xml:lang="it">L&apos;attore Brian Cox</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#BrianCox</IRI>
+        <Literal xml:lang="it">Brian Cox</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Candidatura</IRI>
+        <Literal xml:lang="it">Identifica le candidature per i premi, raccolte all&apos;interno di selezioni</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Candidatura</IRI>
+        <Literal xml:lang="it">Candidatura</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CerimoniaPremiazione</IRI>
+        <Literal xml:lang="it">Definisce una cerimonia di premiazione in cui vengono assgnati dei premi a delle serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CerimoniaPremiazione</IRI>
+        <Literal xml:lang="it">Cerimonia Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ConnorsWedding</IRI>
+        <Literal xml:lang="it">Indica l&apos;episodio della serie TV Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ConnorsWedding</IRI>
+        <Literal xml:lang="it">Connor&apos;s Wedding</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EmmyAwards2023</IRI>
+        <Literal xml:lang="it">Cerimonia Emmy Awards 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EmmyAwards2023</IRI>
+        <Literal xml:lang="it">Emmy Awards 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EmmyMigliorAttoreNonProtagonista2023</IRI>
+        <Literal xml:lang="it">Rappresenta il vincitore del premio &quot;Miglior Attore Non Protagonista&quot; conferito agli Emmy Award 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EmmyMigliorAttoreNonProtagonista2023</IRI>
+        <Literal xml:lang="it">Emmy Miglior Attore Non Protagonista 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EmmyMigliorSerieDrammatica2014</IRI>
+        <Literal xml:lang="it">Rappresenta il premio &quot;Miglior Serie Drammatica&quot; conferito nell&apos;edizione del 2024 degli Emmy Awards</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EmmyMigliorSerieDrammatica2014</IRI>
+        <Literal xml:lang="it">Emmy Migliore Serie Drammarica 2014</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#EmmyMiglioreSerieDrammatica2023</IRI>
+        <Literal xml:lang="it">Premio per migliore serie Drammatica nel 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EmmyMiglioreSerieDrammatica2023</IRI>
+        <Literal xml:lang="it">Emmy Migliore Serie Drammatica 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Episodio</IRI>
+        <Literal xml:lang="it">Indica gli episodi di cui è composta una stagione di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Episodio</IRI>
+        <Literal xml:lang="it">Episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MatthewMacfadyen</IRI>
+        <Literal xml:lang="it">L&apos;attore e produttore inglese Matthew Macfadyen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MatthewMacfadyen</IRI>
+        <Literal xml:lang="it">Mattew Macdadyen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttoreNonProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attore Non Protagonista in una serie Commedia durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttoreNonProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Miglior Attore Non Protagonista Commedia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttoreNonProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attore Non Protagonista in una serie Drammatica durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttoreNonProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Miglior Attore Non Protagonista Drammatica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttoreProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attore Protagonista in una serie Commedia durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttoreProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Miglior Attore Protagonista Commedia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttoreProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attore Protagonista in una serie Drammatica durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttoreProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Miglior Attore Protagonista Drammatica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttriceNonProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attrice Non Protagonista in una serie Commedia durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttriceNonProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Miglior Attrice Non Protagonista Commedia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttriceNonProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attrice Non Protagonista in una serie Drammatica durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttriceNonProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Miglior Attrice Non Protagonista Drammatica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttriceProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attrice Protagonista in una serie Commedia durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttriceProtagonistaCommedia</IRI>
+        <Literal xml:lang="it">Miglior Attrice Protagonista Commedia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorAttriceProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Attrice Protagonista in una serie Drammatica durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorAttriceProtagonistaDrammatica</IRI>
+        <Literal xml:lang="it">Miglior Attrice Protagonista Drammatica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorMiniserie</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Miniserie durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorMiniserie</IRI>
+        <Literal xml:lang="it">Miglior Miniserie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorSerieCommedia</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Serie Commedia durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorSerieCommedia</IRI>
+        <Literal xml:lang="it">Miglior Serie Commedia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MigliorSerieDrammatica</IRI>
+        <Literal xml:lang="it">Rappresenta i premi assegnati nella categoria di Miglior Serie Drammatica durante una Cerimonia di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MigliorSerieDrammatica</IRI>
+        <Literal xml:lang="it">Miglio Serie Drammatica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Miniserie</IRI>
+        <Literal xml:lang="it">Serielimitate a una stagione con un numero ridotto di episodi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Miniserie</IRI>
+        <Literal xml:lang="it">Miniserie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Monsters</IRI>
+        <Literal xml:lang="it">Rappresenta la miniserie &quot;Monsters&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Monsters</IRI>
+        <Literal xml:lang="it">Monsters</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#NonProtagonista</IRI>
+        <Literal xml:lang="it">Identifica un personaggio non protagonista in una serie TV.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NonProtagonista</IRI>
+        <Literal>Non Protagonista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Persona</IRI>
+        <Literal xml:lang="it">Classe che identifica una persona che ha lavorato nella crazione di una serieTVit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Persona</IRI>
+        <Literal xml:lang="it">Persona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Personaggio</IRI>
+        <Literal xml:lang="it">Identifica i personaggi di una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Personaggio</IRI>
+        <Literal xml:lang="it">Personaggio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Premio</IRI>
+        <Literal xml:lang="it">Classe che identifica i premi assegnati nelle Cerimonie di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Premio</IRI>
+        <Literal xml:lang="it">Premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Produttore</IRI>
+        <Literal xml:lang="it">Identifica i ruoli da produttore associati ad una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Produttore</IRI>
+        <Literal xml:lang="it">Produttore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ProduttoreShow</IRI>
+        <Literal xml:lang="it">Identifica una Persona che ha collaborato alla produzione di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ProduttoreShow</IRI>
+        <Literal xml:lang="it">Produttore Show</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Protagonista</IRI>
+        <Literal xml:lang="it">Identifica un personaggio protagonista in una serie TV.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Protagonista</IRI>
+        <Literal xml:lang="it">Protagonista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Regista</IRI>
+        <Literal xml:lang="it">Identifica i ruoli di regista assocaiti ad una serie tv</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Regista</IRI>
+        <Literal xml:lang="it">Regista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RegistraShow</IRI>
+        <Literal xml:lang="it">Identifica una persona che ha diretto un Episodio di una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RegistraShow</IRI>
+        <Literal xml:lang="it">Regista Show</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RheaSeehorn</IRI>
+        <Literal xml:lang="it">Rappresenta l&apos;attrice Rhea Seehorn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RheaSeehorn</IRI>
+        <Literal xml:lang="it">Rhea Seehorn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Ruolo</IRI>
+        <Literal xml:lang="it">Rappresenta i ruoli ricoperti dalle persone che collaborano alla creazione di una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Ruolo</IRI>
+        <Literal xml:lang="it">Ruolo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sceneggiatore</IRI>
+        <Literal xml:lang="it">Identifica uno Sceneggiatore associato ad una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Sceneggiatore</IRI>
+        <Literal xml:lang="it">Sceneggiatore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SceneggiatoreShow</IRI>
+        <Literal xml:lang="it">Identifica le Persone che hanno collaborato alla scrittura della sceneggiatura di un episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SceneggiatoreShow</IRI>
+        <Literal xml:lang="it">Sceneggiatore Show</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Selezione</IRI>
+        <Literal xml:lang="it">Identifica le candidature associate ad un premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Selezione</IRI>
+        <Literal xml:lang="it">Selezione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SerieCommedia</IRI>
+        <Literal xml:lang="it">Serie che si concentrano su narrazioni leggere e umoristiche, spesso con risvolti satirici o parodistici.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SerieCommedia</IRI>
+        <Literal xml:lang="it">SerieCommedia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SerieDrammatica</IRI>
+        <Literal xml:lang="it">Serie caratterizzate da toni seri e trame complesse che esplorano i conflitti umani profondi.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SerieDrammatica</IRI>
+        <Literal xml:lang="it">SerieDrammatica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SerieTV</IRI>
+        <Literal xml:lang="it">Rappresenta le Serie TV che vengono premiate alle Cerimonie di premiazione in base alla tipologia</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SerieTV</IRI>
+        <Literal xml:lang="it">Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Stagione</IRI>
+        <Literal>rappresenta la o le stagioni di cui è composta una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Stagione</IRI>
+        <Literal>Stagione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Stagione3Succession</IRI>
+        <Literal xml:lang="it">Indica la stagione 3 della serie TV succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Stagione3Succession</IRI>
+        <Literal xml:lang="it">Stagione 3 Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Succession</IRI>
+        <Literal xml:lang="it">Rappresenta la serie TV Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Succession</IRI>
+        <Literal xml:lang="it">Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#TheBear</IRI>
+        <Literal xml:lang="it">Indica la serie TV &quot;The Bear&quot;</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#TheBear</IRI>
+        <Literal xml:lang="it">Thre Bear</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#VinceGilligan</IRI>
+        <Literal xml:lang="it">Rappresenta il produttore e sceneggiatore Vince GIlligan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#VinceGilligan</IRI>
+        <Literal xml:lang="it">Vince Gilligan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Vincitore</IRI>
+        <Literal xml:lang="it">Identifica le candidature vincitrici di un premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Vincitore</IRI>
+        <Literal xml:lang="it">Vincitore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#annoCerminoniaPremiazione</IRI>
+        <Literal>Identifica l&apos;anno in cui si è svolta una cerimonia di premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#annoCerminoniaPremiazione</IRI>
+        <Literal>annoCerimoniaPremiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#annoInizioSerie</IRI>
+        <Literal xml:lang="it">L&apos;anno in cui è andata in onda la prima stagione di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#annoInizioSerie</IRI>
+        <Literal xml:lang="it">Anno Inizio Serie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#annoTermineSerie</IRI>
+        <Literal xml:lang="it">Anno in cui è andata in onda l&apos;ultima stagione di una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#annoTermineSerie</IRI>
+        <Literal xml:lang="it">Anno Termine Serie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#categoria</IRI>
+        <Literal>Usata per associare una categoria ai premi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#categoria</IRI>
+        <Literal>categoriaPremio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#conRuolo</IRI>
+        <Literal>Associa una serie TV ad un ruolo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#conRuolo</IRI>
+        <Literal>conRuolo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#conferitoA</IRI>
+        <Literal xml:lang="it">Associa un Premio ad una Candidatura</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#conferitoA</IRI>
+        <Literal xml:lang="it">Conferito A</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#conferitoAPersona</IRI>
+        <Literal xml:lang="it">Associa un premio ad una persona che ricopre un ruolo, il quale ha ricevuto una candidatura associata a cui è stato conferito un premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#conferitoAPersona</IRI>
+        <Literal xml:lang="it">Conferito a Persona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#conferitoNelloStessoEvento</IRI>
+        <Literal xml:lang="it">Mette in relazione due eventi che sono stati conferito nello stesso evento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#conferitoNelloStessoEvento</IRI>
+        <Literal xml:lang="it">Conferito Nello Stesso Evento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#contiene</IRI>
+        <Literal xml:lang="it">Relazione tra una selezione per un premio e un ruolo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#contiene</IRI>
+        <Literal xml:lang="it">Contiene</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#direttoDa</IRI>
+        <Literal xml:lang="it">Associa un Episodio ad un Regista che ha diretto l&apos;episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#direttoDa</IRI>
+        <Literal xml:lang="it">Diretto Da</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#durataEpisodio</IRI>
+        <Literal xml:lang="it">Indica la durata di un episodio espressa in minuti</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#durataEpisodio</IRI>
+        <Literal xml:lang="it">Durata Episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#eContenutoDa</IRI>
+        <Literal xml:lang="it">Mette in relazione un ruolo specifico e una selezione per un premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#eContenutoDa</IRI>
+        <Literal xml:lang="it">E&apos; Contenuto Da</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#eEpisodioDiSerie</IRI>
+        <Literal xml:lang="it">Associa un episodio alla sua serieTV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#eEpisodioDiSerie</IRI>
+        <Literal xml:lang="it">È episodio Serie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#eStatoSceneggiatoDa</IRI>
+        <Literal xml:lang="it">Mette in relazione un Episodio e il suo Sceneggiatore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#eStatoSceneggiatoDa</IRI>
+        <Literal xml:lang="it">E&apos; Stato Sceneggiato Da</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#genere</IRI>
+        <Literal>Identifica il genere di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#genere</IRI>
+        <Literal>genereSerie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haCandidato</IRI>
+        <Literal>Associa un premio ad una candidatura</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haCandidato</IRI>
+        <Literal>haCandidato</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haDirettoEpisodio</IRI>
+        <Literal xml:lang="it">Identifica un Regista che ha diretto un Episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haDirettoEpisodio</IRI>
+        <Literal xml:lang="it">Ha Diretto Episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haEpisodio</IRI>
+        <Literal>collega una stagione ai suoi episodi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haEpisodio</IRI>
+        <Literal>haEpisodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haPersonaggio</IRI>
+        <Literal xml:lang="it">Lega una Serie TV and un personaggio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haPersonaggio</IRI>
+        <Literal xml:lang="it">Ha Personaggio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haProdotto</IRI>
+        <Literal xml:lang="it">Associa un Produttore ad una Serie TV che ha prodotto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haProdotto</IRI>
+        <Literal xml:lang="it">haProdotto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haRicevutoPremio</IRI>
+        <Literal xml:lang="it">Associa una candidatura vincente ad un premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haRicevutoPremio</IRI>
+        <Literal xml:lang="it">Ha Ricevuto Premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haRuolo</IRI>
+        <Literal xml:lang="it">Lega una persona al Ruolo che ricopre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haRuolo</IRI>
+        <Literal xml:lang="it">Ha Ruolo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haSceneggiatoEpisodio</IRI>
+        <Literal xml:lang="it">Identifica uno Sceneggiatore che ha collaborato alla sceneggiatura di un Episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haSceneggiatoEpisodio</IRI>
+        <Literal xml:lang="it">Ha Sceneggiato Episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haSelezione</IRI>
+        <Literal>Lega un premio al proprio insieme di condidati unici, chiamata selezione per implicare l&apos;assenza di duplicati all&apos;interno dei candidati per un premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haSelezione</IRI>
+        <Literal>haSelezione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haSerieTV</IRI>
+        <Literal>collega una stagione as una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haSerieTV</IRI>
+        <Literal>haSerieTV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haStagione</IRI>
+        <Literal>indica che una serie TV ha una o più stagioni</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haStagione</IRI>
+        <Literal>haStagione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#haVintoPremio</IRI>
+        <Literal>Associa una persona che ha vinto un premio al premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#haVintoPremio</IRI>
+        <Literal>haVintoPremio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#interpretatoDa</IRI>
+        <Literal xml:lang="it">Associa un personaggio al suo ruolo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#interpretatoDa</IRI>
+        <Literal xml:lang="it">Interpretato Da</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#nomeEpisodio</IRI>
+        <Literal>nome di un episodio di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeEpisodio</IRI>
+        <Literal>nomeEpisodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#nomePersona</IRI>
+        <Literal>nome di una persona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomePersona</IRI>
+        <Literal>nomePersona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#nomePersonaggio</IRI>
+        <Literal>nome di un personaggio di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomePersonaggio</IRI>
+        <Literal>nomePersonaggio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#nomeSerie</IRI>
+        <Literal>nome di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nomeSerie</IRI>
+        <Literal>nomeSerie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#nominationSerie</IRI>
+        <Literal xml:lang="it">Collega una SerieTV ad un premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#nominationSerie</IRI>
+        <Literal xml:lang="it">Nomination per contenuto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#numeroEpisodi</IRI>
+        <Literal>numero di episodi totali di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroEpisodi</IRI>
+        <Literal>numeroEpisodi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#numeroEpisodio</IRI>
+        <Literal>indica il numero sequenziale di un episodio all&apos;interno di una stagione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroEpisodio</IRI>
+        <Literal>numeroEpisodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#numeroStagione</IRI>
+        <Literal>indica il numero sequenziale della stagione all&apos;interno della serie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroStagione</IRI>
+        <Literal>numeroStagione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#numeroStagioni</IRI>
+        <Literal>rappresenta il numero di stagioni di una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#numeroStagioni</IRI>
+        <Literal>numeroStagioni</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#personaggioDi</IRI>
+        <Literal xml:lang="it">Mette in relazione un Personaggio con la sua Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#personaggioDi</IRI>
+        <Literal xml:lang="it">Personaggio Di</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#personaggioKimWexler</IRI>
+        <Literal xml:lang="it">Rappresenta il personaggio non protagonista di Better Call Saul Kim Wexler</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#personaggioKimWexler</IRI>
+        <Literal xml:lang="it">Personaggio Kim Wexler</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#personaggioLoganRoy</IRI>
+        <Literal xml:lang="it">Uno dei protagonisti della serie tv succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#personaggioLoganRoy</IRI>
+        <Literal xml:lang="it">Personaggio Logan Roy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#personaggioSaulGoodman</IRI>
+        <Literal xml:lang="it">Rappresenta il protagonista della serie Better Call Saul Saul Goodman</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#personaggioSaulGoodman</IRI>
+        <Literal xml:lang="it">Personaggio Saul Goodman</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#personaggioTomWambsgans</IRI>
+        <Literal xml:lang="it">Rappresenta il personaggio Tom Wambsgans nella serie TV Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#personaggioTomWambsgans</IRI>
+        <Literal xml:lang="it">Personaggio Tom Wambsgans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#premioConferito</IRI>
+        <Literal xml:lang="it">Associa un evento ad un premio assegnato durante una Cerimonia Di Premiazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#premioConferito</IRI>
+        <Literal xml:lang="it">Premio Conferito</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#recitaIn</IRI>
+        <Literal xml:lang="it">Associa una persona che recita ad una SerieTV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#recitaIn</IRI>
+        <Literal xml:lang="it">recitaIn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloAffidatoA</IRI>
+        <Literal xml:lang="it">Lega un Ruolo ad una Persona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloAffidatoA</IRI>
+        <Literal xml:lang="it">Ruolo Affidato A</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloAttore</IRI>
+        <Literal>Lega un attore ad una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloAttore</IRI>
+        <Literal>ruoloAttore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloAttoreKimWexler</IRI>
+        <Literal xml:lang="it">Rappresenta il ruolo dell&apos;attore che interpreta il personaggio di Kim Wexler</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloAttoreKimWexler</IRI>
+        <Literal xml:lang="it">Ruolo Attore Kim Wexler</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloAttoreLoganRoy</IRI>
+        <Literal xml:lang="it">Rappresenta il ruolo dell&apos;attore che interpreta il personaggio di Logan Roy nella serie Tv Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloAttoreLoganRoy</IRI>
+        <Literal xml:lang="it">Ruolo Attore Logan Roy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloAttoreSaulGoodman</IRI>
+        <Literal xml:lang="it">Rappresenta il ruolo ricoperto dall&apos;attore che interpreta il personaggio di Saul Goodman nella serie tv Better Call Saul</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloAttoreSaulGoodman</IRI>
+        <Literal xml:lang="it">Ruolo Attore Saul Goodman</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloAttoreTomWambsgans</IRI>
+        <Literal xml:lang="it">Rappresenta il ruolo ricoperto dall&apos;attore che intepreta il personaggio di Tom Wambsgans nella serie TV Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloAttoreTomWambsgans</IRI>
+        <Literal xml:lang="it">Ruolo Attore Tom Wambsgans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloAttoriale</IRI>
+        <Literal xml:lang="it">Mette in relazione un ruolo con il personaggio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloAttoriale</IRI>
+        <Literal xml:lang="it">Ruolo Attoriale</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloProduttore</IRI>
+        <Literal>Lega un produttore ad una serie TV.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloProduttore</IRI>
+        <Literal>ruoloProduttore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloProduzioneBetterCallSaul</IRI>
+        <Literal xml:lang="it">Ruolo ricoperto da chi ha collaborato alla Produzione di Better Call Saul</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloProduzioneBetterCallSaul</IRI>
+        <Literal xml:lang="it">Ruolo Produzione Better Call Saul</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloProduzioneSuccesion</IRI>
+        <Literal xml:lang="it">Rappresenta chi ha collaborato alla produzione della serie Tv Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloProduzioneSuccesion</IRI>
+        <Literal xml:lang="it">Ruolo Produzione Succession</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloRegista</IRI>
+        <Literal>Lega un regista ad una serie TV.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
+        <IRI>#ruoloRegista</IRI>
+        <Literal>ruoloRegista</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ruoloSceneggiatore</IRI>
+        <Literal>Lega un sceneggaitore ad una serie TV.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ruoloSceneggiatore</IRI>
+        <Literal>ruoloSceneggiatore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#selezioneDi</IRI>
+        <Literal>Lega una selezione, lista di candidati unici, ad un premio.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#selezioneDi</IRI>
+        <Literal>selezioneDi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#selezioneEmmyMigliorAttoreNonProtagonista2023</IRI>
+        <Literal xml:lang="it">Rappresenta le candidature al premio &quot;Miglior Attore Non Protagonista&quot; negli Emmy Awards 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#selezioneEmmyMigliorAttoreNonProtagonista2023</IRI>
+        <Literal xml:lang="it">Selezione Emmy Miglior Attore Non Protagonista 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#selezioneEmmyMigliorSerieDrammatica2023</IRI>
+        <Literal xml:lang="it">Selezione dei titoli candidati per il premio &quot;Miglior Serie Drammatica&quot; nell&apos;anno 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#selezioneEmmyMigliorSerieDrammatica2023</IRI>
+        <Literal xml:lang="it">Selezione Emmy Miglior Serie Drammatica 2023</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#serieHaEpisodio</IRI>
+        <Literal xml:lang="it">Lega un Episodio ad una Serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#serieHaEpisodio</IRI>
+        <Literal xml:lang="it">Serie Ha Episodio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#serieHaVintoPremio</IRI>
+        <Literal xml:lang="it">Collega un premio ad una serie TV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#serieHaVintoPremio</IRI>
+        <Literal xml:lang="it">Serie Ha Vinto Premio</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#sesso</IRI>
+        <Literal xml:lang="it">Proprietà che identifica il sesso di una persona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#sesso</IRI>
+        <Literal xml:lang="it">sesso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#terminata</IRI>
+        <Literal xml:lang="it">Valore booleano per indicare se una Serie TV è ancora in corso o è teminata</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#terminata</IRI>
+        <Literal xml:lang="it">Terminata</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal xml:lang="en">The Person class represents people. Something is a Person if it is a person. We don&apos;t nitpic about whether they&apos;re alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered &apos;agents&apos; in FOAF.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <IRI>http://xmlns.com/foaf/spec/#term_Person</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://xmlns.com/foaf/0.1/Person</IRI>
+        <Literal xml:lang="en">Person</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://dbpedia.org/ontology/Award</IRI>
+        <Literal xml:lang="it">Classe designata da DBpedia per rappresentare i premi</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://dbpedia.org/ontology/Award</IRI>
+        <IRI>https://dbpedia.org/ontology/Award</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://dbpedia.org/ontology/Award</IRI>
+        <Literal xml:lang="en">Award</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://schema.org/Product</IRI>
+        <Literal xml:lang="en">Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://schema.org/Product</IRI>
+        <IRI>https://schema.org/Product</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://schema.org/Product</IRI>
+        <Literal xml:lang="en">Product</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://schema.org/category</IRI>
+        <Literal>A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://schema.org/category</IRI>
+        <Literal>https://schema.org/category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://schema.org/category</IRI>
+        <Literal>category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://schema.org/genre</IRI>
+        <Literal xml:lang="en">Genre of the creative work, broadcast channel or group.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://schema.org/genre</IRI>
+        <Literal xml:lang="en">https://schema.org/genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://schema.org/genre</IRI>
+        <Literal xml:lang="en">Genre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q14925221</IRI>
+        <Literal xml:lang="en">American crime drama television series (2015–2022)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://www.wikidata.org/wiki/Q14925221</IRI>
+        <IRI>https://www.wikidata.org/wiki/Q14925221</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q14925221</IRI>
+        <Literal xml:lang="en">Better Call Saul</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q28389</IRI>
+        <Literal xml:lang="en">writer who writes for films, TV shows, comics and games</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://www.wikidata.org/wiki/Q28389</IRI>
+        <Literal>https://www.wikidata.org/wiki/Q28389</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q28389</IRI>
+        <Literal xml:lang="en">Screenwriter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q30599007</IRI>
+        <Literal xml:lang="en">American comedy-drama television series</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://www.wikidata.org/wiki/Q30599007</IRI>
+        <IRI>https://www.wikidata.org/wiki/Q30599007</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q30599007</IRI>
+        <Literal xml:lang="en">Succession Wikidata</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q314954</IRI>
+        <Literal xml:lang="en">English actor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q314954</IRI>
+        <Literal xml:lang="en">Matthew Macfadyen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q3282637</IRI>
+        <Literal xml:lang="en">Film Producer</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q3282637</IRI>
+        <Literal xml:lang="en">person supervising the making of a film</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q34975</IRI>
+        <Literal xml:lang="en">Scottish actor</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q34975</IRI>
+        <Literal xml:lang="en">Brian Cox</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q4500</IRI>
+        <Literal xml:lang="en">Vince Gilligan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q4500</IRI>
+        <Literal xml:lang="en">American writer, producer, and director</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q4502477</IRI>
+        <Literal xml:lang="en">American actress (born 1972)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://www.wikidata.org/wiki/Q4502477</IRI>
+        <IRI>https://www.wikidata.org/wiki/Q4502477</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q4502477</IRI>
+        <Literal xml:lang="en">Rhea Seehorn</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Q888178</IRI>
+        <Literal xml:lang="en">American actor, comedian and filmmaker</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://www.wikidata.org/wiki/Q888178</IRI>
+        <IRI>https://www.wikidata.org/wiki/Q888178</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Q888178</IRI>
+        <Literal>Bob Odenkirk</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>https://www.wikidata.org/wiki/Property:P166</IRI>
+        <Literal xml:lang="it">premio assegnato a una persona o organizzazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
+        <IRI>https://www.wikidata.org/wiki/Property:P166</IRI>
+        <Literal>https://www.wikidata.org/wiki/Property:P166</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>https://www.wikidata.org/wiki/Property:P166</IRI>
+        <Literal xml:lang="it">premio ricevuto</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
