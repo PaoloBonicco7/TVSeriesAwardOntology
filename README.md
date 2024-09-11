@@ -2,49 +2,59 @@
 
 ## Overview
 
-The TV Series Award Ontology provides a structured framework to model the domain of TV series and the awards associated with them. This ontology is expressed in OWL (Web Ontology Language) and aims to capture detailed information about TV series, including their episodes, seasons, roles, and accolades, such as nominations and awards won.
+The TV Series Award Ontology provides a structured framework to model the domain of TV series and their associated awards. Expressed in OWL (Web Ontology Language), this ontology captures detailed information about TV series, including their episodes, seasons, roles, and accolades such as nominations and awards.
+
+## Repository Contents
+
+- `TvSeriesAwardOntology.owl`: The main ontology file in OWL format
+- `TvSeriesAwardOntology.ttl`: The ontology in Turtle format
+- `documentation/`: Folder containing generated HTML documentation
+- `old`: Folder containing previuos version in OWL format
 
 ## Namespace
 
 The ontology is available under the namespace URI:  
-`http://www.semanticweb.org/TvSeriesAwardOntology#`
+`http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology`
 
 ## Features
 
-- **Classes and Properties**: Includes comprehensive modeling of TV series, roles (actors, directors, producers), awards, and nominations.
-- **Relationships**: Detailed object properties linking series to their episodes, seasons, associated personnel, and the awards they've won or been nominated for.
-- **Interoperability**: Aligns with existing ontological standards and integrates well with other data sources and ontologies.
+- **Comprehensive Modeling**: Includes classes and properties for TV series, roles (actors, directors, producers), awards, and nominations.
+- **Detailed Relationships**: Object properties linking series to episodes, seasons, personnel, and awards/nominations.
+- **Interoperability**: Aligns with existing ontological standards for easy integration.
 
 ## Usage
 
-This ontology can be used by researchers and developers interested in analyzing TV series data, developing applications that recommend TV series based on awards and nominations, or enhancing metadata management systems for digital libraries.
+This ontology is useful for:
+- Researchers analyzing TV series data
+- Developers creating recommendation systems based on awards
+- Digital libraries enhancing metadata management
 
 ## Importing the Ontology
 
-To use this ontology in your projects, import it into your ontology management tool (like Protégé) with the following URI:  
-`http://www.semanticweb.org/TvSeriesAwardOntology`
+Import into your ontology management tool (e.g., Protégé) using the URI:  
+`http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology`
 
 ## Documentation
 
-For more detailed documentation, please refer to the generated HTML documentation available at the following link.
+Detailed documentation is available in the `documentation/` folder.
 
 ## Contributions
 
-Contributions are welcome! If you'd like to improve the ontology or extend its coverage, please fork the repository and submit a pull request.
+Contributions are welcome! Please fork the repository and submit a pull request.
 
 ## License
 
-This ontology is released under MIT, which allows for widespread use and modification.
+This ontology is released under the MIT License.
 
 ## Creator
 
 **Paolo Bonicco**  
-- You can [contact me via email](mailto:paolo.bonicco1@gmail.com) for any inquiries or collaboration requests.
+- Email: [paolo.bonicco1@gmail.com](mailto:paolo.bonicco1@gmail.com)
 
 ## Acknowledgments
 
-This project incorporates data from various sources including IMDb and other public Ontologies.
+This project incorporates data from IMDb and other public ontologies.
 
 ---
 
-For further details, updates, or to report issues, please visit the repository or contact the project maintainers directly.
+For updates or to report issues, please use the GitHub issue tracker or contact the maintainer directly.
