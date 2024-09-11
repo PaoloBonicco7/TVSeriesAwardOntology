@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://www.semanticweb.org/TvSeriesAwardOntology"
+     xml:base="http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.semanticweb.org/TvSeriesAwardOntology">
+     ontologyIRI="http://www.semanticweb.org/paolobonicco/ontologies/2023/TvSeriesAwardOntology">
     <Prefix name="" IRI="http://www.semanticweb.org/TvSeriesAwardOntology"/>
     <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
     <Prefix name="wd" IRI="http://www.wikidata.org/entity/"/>
@@ -2015,76 +2015,39 @@
         </Annotation>
         <Body>
             <ObjectPropertyAtom>
-                <ObjectProperty IRI="#ruoloAttoriale"/>
-                <Variable IRI="#ruolo"/>
-                <Variable IRI="#personaggio"/>
-            </ObjectPropertyAtom>
-            <ObjectPropertyAtom>
                 <ObjectProperty IRI="#haRicevutoPremio"/>
-                <Variable IRI="#ruolo"/>
-                <Variable IRI="#premio"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#ruolo"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#premio"/>
             </ObjectPropertyAtom>
             <ClassAtom>
                 <Class IRI="#Persona"/>
-                <Variable IRI="#persona"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#persona"/>
             </ClassAtom>
             <ObjectPropertyAtom>
+                <ObjectProperty IRI="#ruoloAttoriale"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#ruolo"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#personaggio"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
                 <ObjectProperty IRI="#haRuolo"/>
-                <Variable IRI="#persona"/>
-                <Variable IRI="#ruolo"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#persona"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#ruolo"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haPersonaggio"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#serie"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#personaggio"/>
             </ObjectPropertyAtom>
             <ClassAtom>
                 <Class IRI="#SerieTV"/>
-                <Variable IRI="#serie"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#serie"/>
             </ClassAtom>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#haPersonaggio"/>
-                <Variable IRI="#serie"/>
-                <Variable IRI="#personaggio"/>
-            </ObjectPropertyAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#serieHaVintoPremio"/>
-                <Variable IRI="#serie"/>
-                <Variable IRI="#premio"/>
-            </ObjectPropertyAtom>
-        </Head>
-    </DLSafeRule>
-    <DLSafeRule>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
-            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-            <Literal>Collega un episodio alla sua serie TV</Literal>
-        </Annotation>
-        <Annotation>
-            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-            <Literal>Serie ha episodio</Literal>
-        </Annotation>
-        <Body>
-            <ClassAtom>
-                <Class IRI="#SerieTV"/>
-                <Variable abbreviatedIRI="tsao:s"/>
-            </ClassAtom>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#haEpisodio"/>
-                <Variable abbreviatedIRI="tsao:st"/>
-                <Variable abbreviatedIRI="tsao:e"/>
-            </ObjectPropertyAtom>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#haStagione"/>
-                <Variable abbreviatedIRI="tsao:s"/>
-                <Variable abbreviatedIRI="tsao:st"/>
-            </ObjectPropertyAtom>
-        </Body>
-        <Head>
-            <ObjectPropertyAtom>
-                <ObjectProperty IRI="#eEpisodioDiSerie"/>
-                <Variable abbreviatedIRI="tsao:e"/>
-                <Variable abbreviatedIRI="tsao:s"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#serie"/>
+                <Variable IRI="http://www.semanticweb.org/TvSeriesAwardOntology#premio"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
@@ -2104,24 +2067,24 @@
         <Body>
             <ClassAtom>
                 <Class IRI="#SerieTV"/>
-                <Variable abbreviatedIRI="tsao:s"/>
+                <Variable IRI="#s"/>
             </ClassAtom>
             <ObjectPropertyAtom>
-                <ObjectProperty IRI="#haEpisodio"/>
-                <Variable abbreviatedIRI="tsao:st"/>
-                <Variable abbreviatedIRI="tsao:e"/>
+                <ObjectProperty IRI="#haStagione"/>
+                <Variable IRI="#s"/>
+                <Variable IRI="#st"/>
             </ObjectPropertyAtom>
             <ObjectPropertyAtom>
-                <ObjectProperty IRI="#haStagione"/>
-                <Variable abbreviatedIRI="tsao:s"/>
-                <Variable abbreviatedIRI="tsao:st"/>
+                <ObjectProperty IRI="#haEpisodio"/>
+                <Variable IRI="#st"/>
+                <Variable IRI="#e"/>
             </ObjectPropertyAtom>
         </Body>
         <Head>
             <ObjectPropertyAtom>
                 <ObjectProperty IRI="#serieHaEpisodio"/>
-                <Variable abbreviatedIRI="tsao:s"/>
-                <Variable abbreviatedIRI="tsao:e"/>
+                <Variable IRI="#s"/>
+                <Variable IRI="#e"/>
             </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
@@ -2139,26 +2102,133 @@
             <Literal>Miniserie</Literal>
         </Annotation>
         <Body>
-            <DataPropertyAtom>
-                <DataProperty IRI="#annoInizioSerie"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-                <Variable abbreviatedIRI="tsao:anno"/>
-            </DataPropertyAtom>
             <ClassAtom>
                 <Class IRI="#SerieTV"/>
-                <Variable abbreviatedIRI="tsao:x"/>
+                <Variable IRI="#x"/>
             </ClassAtom>
             <DataPropertyAtom>
+                <DataProperty IRI="#annoInizioSerie"/>
+                <Variable IRI="#x"/>
+                <Variable IRI="#anno"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
                 <DataProperty IRI="#annoTermineSerie"/>
-                <Variable abbreviatedIRI="tsao:x"/>
-                <Variable abbreviatedIRI="tsao:anno"/>
+                <Variable IRI="#x"/>
+                <Variable IRI="#anno"/>
             </DataPropertyAtom>
         </Body>
         <Head>
             <ClassAtom>
                 <Class IRI="#Miniserie"/>
-                <Variable abbreviatedIRI="tsao:x"/>
+                <Variable IRI="#x"/>
             </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Indica quando una serie appartiene alla calsse SerieCommedia</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Serie Commedia</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#SerieTV"/>
+                <Variable IRI="#x"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#genere"/>
+                <Variable IRI="#x"/>
+                <Variable IRI="#g"/>
+            </DataPropertyAtom>
+            <BuiltInAtom abbreviatedIRI="swrlb:equal">
+                <Variable IRI="#g"/>
+                <Literal>Commedia</Literal>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SerieCommedia"/>
+                <Variable IRI="#x"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Inidica quando una Serie TV appartiene alla classe SerieDrammatica</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Serie Drammatica</Literal>
+        </Annotation>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#SerieTV"/>
+                <Variable IRI="#x"/>
+            </ClassAtom>
+            <DataPropertyAtom>
+                <DataProperty IRI="#genere"/>
+                <Variable IRI="#x"/>
+                <Variable IRI="#g"/>
+            </DataPropertyAtom>
+            <BuiltInAtom abbreviatedIRI="swrlb:equal">
+                <Variable IRI="#g"/>
+                <Literal>Drammatica</Literal>
+            </BuiltInAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#SerieDrammatica"/>
+                <Variable IRI="#x"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="swrla:isRuleEnabled"/>
+            <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal>Collega un episodio alla sua serie TV</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal>Serie ha episodio</Literal>
+        </Annotation>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haEpisodio"/>
+                <Variable IRI="#st"/>
+                <Variable IRI="#e"/>
+            </ObjectPropertyAtom>
+            <ClassAtom>
+                <Class IRI="#SerieTV"/>
+                <Variable IRI="#s"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#haStagione"/>
+                <Variable IRI="#s"/>
+                <Variable IRI="#st"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#eEpisodioDiSerie"/>
+                <Variable IRI="#e"/>
+                <Variable IRI="#s"/>
+            </ObjectPropertyAtom>
         </Head>
     </DLSafeRule>
     <AnnotationAssertion>
